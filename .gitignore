@@ -1,0 +1,8 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Large cached downloads — persisted via GitHub Actions cache, not git
+output/zips/
+output/extracted/

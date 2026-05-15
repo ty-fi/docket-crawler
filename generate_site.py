@@ -295,8 +295,15 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
   .clip-icon { color: #94a3b8; font-size: 14px; }
 
-  /* preview text truncation handled by AG Grid */
-  .preview { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--color-text); }
+  .preview {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    white-space: normal;
+    color: var(--color-text);
+    line-height: 1.5;
+  }
   .preview-muted { color: var(--color-muted); }
 </style>
 </head>
@@ -408,6 +415,10 @@ const columnDefs = [
     width: 100,
     sortable: true,
     filter: true,
+    comparator: (a, b) => {
+      const parse = s => { const [m,d,y] = (s||'').split('/'); return new Date(+y, +m-1, +d); };
+      return parse(a) - parse(b);
+    },
   },
   {
     field: 'is_protective_disclosure',
@@ -421,11 +432,21 @@ const columnDefs = [
     field: 'question',
     headerName: 'Question',
     flex: 1,
-    minWidth: 220,
+    minWidth: 180,
     cellRenderer: previewRenderer,
     sortable: false,
     filter: true,
     tooltipField: 'question',
+  },
+  {
+    field: 'response',
+    headerName: 'Response',
+    flex: 1,
+    minWidth: 180,
+    cellRenderer: previewRenderer,
+    sortable: false,
+    filter: true,
+    tooltipField: 'response',
   },
   {
     field: 'attachment_filenames',
@@ -458,7 +479,7 @@ const gridOptions = {
   onRowClicked: e => showDetail(e.data),
   onFilterChanged: updateCount,
   onGridReady: updateCount,
-  rowHeight: 36,
+  rowHeight: 108,
   headerHeight: 38,
   tooltipShowDelay: 400,
 };

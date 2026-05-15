@@ -1,0 +1,59 @@
+name: Refresh docket data
+
+on:
+  schedule:
+    - cron: '0 10 * * 1'   # Every Monday at 10am UTC
+  workflow_dispatch:         # Allow manual trigger from the Actions tab
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write        # Needed to push updated outputs back to the repo
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install python-docx
+
+      - name: Restore ZIP cache
+        uses: actions/cache@v4
+        with:
+          path: output/zips
+          # New cache entry per run; restore-keys picks up the most recent prior run
+          key: zips-v1-${{ github.run_id }}
+          restore-keys: |
+            zips-v1-
+
+      - name: Create output dirs
+        run: mkdir -p output/zips output/extracted
+
+      - name: Crawl new filings
+        run: python crawl.py
+
+      - name: Re-parse all ZIPs
+        run: python reparse.py
+
+      - name: Generate site
+        run: python generate_site.py
+
+      - name: Commit updated outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/stf_pia_qa.csv \
+                  output/stf_pia_qa.sqlite \
+                  output/index.html \
+                  output/manifest.json
+          # Only commit if something actually changed
+          git diff --staged --quiet \
+            && echo "No changes to commit." \
+            || git commit -m "chore: refresh docket data $(date -u +%Y-%m-%d)"
+          git push
