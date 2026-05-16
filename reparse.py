@@ -1,8 +1,13 @@
 """
-Re-parse all cached ZIPs into clean CSV + SQLite.
-No network requests — reads from output/zips/ only.
+Re-parse all cached ZIPs for a docket into clean CSV + SQLite.
+No network requests — reads from output/docket_{id}/zips/ only.
+
+Usage:
+  python reparse.py                    # uses first docket in dockets.json
+  python reparse.py --docket 55378
 """
 
+import argparse
 import csv
 import io
 import json
@@ -14,11 +19,6 @@ from pathlib import Path
 from docx import Document
 
 OUTPUT_DIR = Path("output")
-ZIPS_DIR = OUTPUT_DIR / "zips"
-EXTRACTED_DIR = OUTPUT_DIR / "extracted"
-MANIFEST_JSON = OUTPUT_DIR / "manifest.json"
-DB_CSV = OUTPUT_DIR / "stf_pia_qa.csv"
-DB_SQLITE = OUTPUT_DIR / "stf_pia_qa.sqlite"
 
 FIELDNAMES = [
     "filing_api_id", "filing_description", "filing_date",
@@ -27,40 +27,44 @@ FIELDNAMES = [
     "attachment_filenames", "confidentiality_files",
 ]
 
-
 STF_PATTERN = r'((?:PD\s+)?STF-[A-Z]{2,4}-\s*\d+\s*-\s*\d+)'
 
 
+def load_docket_config(docket_id=None):
+    with open("dockets.json") as f:
+        config = json.load(f)
+    dockets = config["dockets"]
+    if docket_id is None:
+        return dockets[0]
+    for d in dockets:
+        if d["id"] == docket_id:
+            return d
+    raise ValueError(f"Docket '{docket_id}' not found in dockets.json")
+
+
 def extract_doc_id_from_text(paragraphs):
-    """Scan first 15 non-blank paragraphs for STF-XXX-X-Y pattern."""
     non_blank = [p for p in paragraphs if p.strip()]
     for p in non_blank[:15]:
         m = re.search(STF_PATTERN, p, re.IGNORECASE)
         if m:
-            # Normalize internal spaces (e.g. "STF- PIA-1-1" -> "STF-PIA-1-1")
             return re.sub(r'(?<=STF-)\s+|\s+(?=-)', '', m.group(1).upper())
     return None
 
 
 def extract_doc_id_from_filename(filename):
-    """Extract STF-XXX-X-Y from the file's basename as fallback."""
     basename = Path(filename).stem
     m = re.search(STF_PATTERN, basename, re.IGNORECASE)
     if m:
         return m.group(1).strip()
-    return basename  # last resort: use full stem
+    return basename
 
 
 def extract_staff(doc_id):
-    """Extract the staff acronym from a doc_id like 'STF-PIA-1-1' -> 'PIA'."""
     m = re.search(r'STF-([A-Z]{2,4})-', doc_id, re.IGNORECASE)
     return m.group(1).upper() if m else ""
 
 
 def parse_qa_docx(docx_bytes, zip_entry_name):
-    """
-    Parse a Q&A docx. Returns dict or None if no Q&A structure found.
-    """
     try:
         doc = Document(io.BytesIO(docx_bytes))
     except Exception as e:
@@ -70,22 +74,18 @@ def parse_qa_docx(docx_bytes, zip_entry_name):
     paragraphs = [p.text.strip() for p in doc.paragraphs]
     full_text = "\n".join(p for p in paragraphs if p)
 
-    # Must have both Question and Response markers
     has_q = bool(re.search(r'(?i)question\s*:', full_text))
     has_r = bool(re.search(r'(?i)response\s*:', full_text))
     if not has_q or not has_r:
         return None
 
-    # Try to find doc_id in text first, then fall back to filename
     doc_id = extract_doc_id_from_text(paragraphs)
     if not doc_id:
         doc_id = extract_doc_id_from_filename(zip_entry_name)
 
-    # Is this a Protective Disclosure (PD) filing?
     basename = Path(zip_entry_name).name
     is_pd = bool(re.match(r'PD\s+STF-[A-Z]{2,4}', basename, re.IGNORECASE))
 
-    # Split on standalone Question: / Response: markers
     q_match = re.search(r'(?im)^question\s*:?\s*$', full_text)
     r_match = re.search(r'(?im)^response\s*:?\s*$', full_text)
 
@@ -93,7 +93,6 @@ def parse_qa_docx(docx_bytes, zip_entry_name):
         question = full_text[q_match.end():r_match.start()].strip()
         response = full_text[r_match.end():].strip()
     else:
-        # Inline markers: "Question: <text> Response: <text>"
         r_split = re.split(r'(?i)response\s*:', full_text, maxsplit=1)
         response = r_split[1].strip() if len(r_split) > 1 else ""
         q_split = re.split(r'(?i)question\s*:', r_split[0], maxsplit=1)
@@ -108,12 +107,6 @@ def parse_qa_docx(docx_bytes, zip_entry_name):
 
 
 def classify_zip_contents(zip_names):
-    """
-    Returns:
-      qa_files        - individual Q&A response docx files
-      conf_files      - confidentiality/trade secret assertion docx files
-      other_files     - attachments and everything else
-    """
     qa, conf, other = [], [], []
     for name in zip_names:
         basename = Path(name).name
@@ -123,7 +116,10 @@ def classify_zip_contents(zip_names):
             continue
         if lower.endswith(".pdf") and "verification" in lower:
             continue
-        if "trade secret" in lower or ("confidential" in lower and not re.search(r'STF-PIA-\d+-\d+', basename)):
+        if "trade secret" in lower or (
+            "confidential" in lower
+            and not re.search(r'STF-[A-Z]{2,4}-\d+-\d+', basename, re.IGNORECASE)
+        ):
             conf.append(name)
         elif (name.endswith(".docx")
               and re.search(r'STF-[A-Z]{2,4}-\d+-\d+', basename, re.IGNORECASE)
@@ -135,11 +131,24 @@ def classify_zip_contents(zip_names):
 
 
 def main():
-    # Load manifest to get filing metadata
-    with open(MANIFEST_JSON) as f:
+    parser = argparse.ArgumentParser(description="Re-parse cached ZIPs for a docket")
+    parser.add_argument("--docket", default=None, help="Docket ID from dockets.json (default: first entry)")
+    args = parser.parse_args()
+
+    docket_config = load_docket_config(args.docket)
+    docket_id = docket_config["id"]
+
+    docket_dir = OUTPUT_DIR / f"docket_{docket_id}"
+    zips_dir = docket_dir / "zips"
+    manifest_json = docket_dir / "manifest.json"
+    db_csv = docket_dir / "qa.csv"
+    db_sqlite = docket_dir / "qa.sqlite"
+
+    print(f"Docket: {docket_id} — {docket_config['label']}")
+
+    with open(manifest_json) as f:
         manifest = json.load(f)
 
-    # Build a lookup: zip_filename -> filing metadata
     zip_meta = {}
     for entry in manifest:
         if entry.get("status") == "ok":
@@ -147,14 +156,11 @@ def main():
             zip_meta[key] = entry
 
     rows = []
-    zip_files = sorted(ZIPS_DIR.glob("*.zip"))
+    zip_files = sorted(zips_dir.glob("*.zip"))
     print(f"Re-parsing {len(zip_files)} cached ZIPs...\n")
 
     for zip_path in zip_files:
-        # Derive filing_api_id from filename prefix (e.g. "216538_dkt_55378...")
         api_id = int(zip_path.name.split("_")[0])
-        meta_key = zip_path.name  # key is the full zip filename without leading path
-        # Find matching manifest entry
         filing_meta = next(
             (v for k, v in zip_meta.items() if zip_path.name.endswith(v["zip_filename"])),
             None
@@ -174,8 +180,7 @@ def main():
                 print(f"    WARNING: no Q&A structure in {Path(qa_name).name}")
                 continue
 
-            # Match attachments by doc_id prefix in filename
-            doc_id_clean = re.sub(r'\s+', '', result["doc_id"])  # normalize spaces
+            doc_id_clean = re.sub(r'\s+', '', result["doc_id"])
             related_attachments = []
             for n in other_files:
                 n_clean = re.sub(r'\s+', '', Path(n).name)
@@ -199,17 +204,15 @@ def main():
 
     print(f"\n{len(rows)} records total")
 
-    # Write CSV
-    with open(DB_CSV, "w", newline="", encoding="utf-8") as f:
+    with open(db_csv, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
         writer.writeheader()
         writer.writerows(rows)
-    print(f"Wrote {DB_CSV}")
+    print(f"Wrote {db_csv}")
 
-    # Write SQLite
-    if DB_SQLITE.exists():
-        DB_SQLITE.unlink()
-    con = sqlite3.connect(DB_SQLITE)
+    if db_sqlite.exists():
+        db_sqlite.unlink()
+    con = sqlite3.connect(db_sqlite)
     con.execute(f"""
         CREATE TABLE qa_responses (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -230,7 +233,6 @@ def main():
     con.execute("CREATE INDEX idx_filing_date ON qa_responses(filing_date)")
     con.execute("CREATE INDEX idx_staff ON qa_responses(staff)")
     con.execute("CREATE INDEX idx_is_pd ON qa_responses(is_protective_disclosure)")
-    # Full-text search index for question + response content
     con.execute("""
         CREATE VIRTUAL TABLE qa_fts USING fts5(
             staff, doc_id, question, response,
@@ -241,11 +243,10 @@ def main():
         f"INSERT INTO qa_responses ({','.join(FIELDNAMES)}) VALUES ({','.join('?' * len(FIELDNAMES))})",
         [[r[f] for f in FIELDNAMES] for r in rows],
     )
-    # Populate FTS
     con.execute("INSERT INTO qa_fts(rowid, staff, doc_id, question, response) SELECT id, staff, doc_id, question, response FROM qa_responses")
     con.commit()
     con.close()
-    print(f"Wrote {DB_SQLITE}")
+    print(f"Wrote {db_sqlite}")
 
 
 if __name__ == "__main__":

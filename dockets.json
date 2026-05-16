@@ -1,0 +1,11 @@
+{
+  "dockets": [
+    {
+      "id": "55378",
+      "label": "Docket 55378",
+      "subtitle": "Staff Data Requests — Georgia Power Company",
+      "company_filter": "Georgia Power",
+      "doc_pattern": "STF-[A-Z]{2,4}-"
+    }
+  ]
+}

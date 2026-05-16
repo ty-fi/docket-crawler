@@ -4,5 +4,5 @@ __pycache__/
 .venv/
 
 # Large cached downloads — persisted via GitHub Actions cache, not git
-output/zips/
-output/extracted/
+output/docket_*/zips/
+output/docket_*/extracted/

@@ -1,5 +1,6 @@
 """
-Generates index.html with AG Grid and embedded data from the SQLite database.
+Generates index.html with AG Grid and embedded data from all configured dockets.
+Reads dockets.json, loads qa.sqlite from each docket's directory, merges into one page.
 Output: output/index.html
 """
 
@@ -7,30 +8,47 @@ import json
 import sqlite3
 from pathlib import Path
 
-DB = Path("output/stf_pia_qa.sqlite")
-OUT = Path("output/index.html")
+DOCKETS_CONFIG = Path("dockets.json")
+OUTPUT_DIR = Path("output")
+OUT = OUTPUT_DIR / "index.html"
+
+DOCKET_PALETTE = [
+    {"color": "#0369a1", "bg": "#e0f2fe"},
+    {"color": "#7c3aed", "bg": "#ede9fe"},
+    {"color": "#059669", "bg": "#d1fae5"},
+    {"color": "#d97706", "bg": "#fef3c7"},
+    {"color": "#dc2626", "bg": "#fee2e2"},
+    {"color": "#db2777", "bg": "#fce7f3"},
+    {"color": "#0891b2", "bg": "#cffafe"},
+    {"color": "#65a30d", "bg": "#ecfccb"},
+]
 
 
-def load_data():
-    con = sqlite3.connect(DB)
-    con.row_factory = sqlite3.Row
-    rows = con.execute("""
-        SELECT
-            filing_api_id,
-            filing_description,
-            filing_date,
-            staff,
-            doc_id,
-            is_protective_disclosure,
-            question,
-            response,
-            attachment_filenames,
-            confidentiality_files
-        FROM qa_responses
-        ORDER BY staff, filing_date, doc_id
-    """).fetchall()
-    con.close()
-    return [dict(r) for r in rows]
+def load_all_data(dockets):
+    all_rows = []
+    loaded = []
+    for docket in dockets:
+        db_path = OUTPUT_DIR / f"docket_{docket['id']}" / "qa.sqlite"
+        if not db_path.exists():
+            print(f"  Skipping docket {docket['id']}: {db_path} not found")
+            continue
+        con = sqlite3.connect(db_path)
+        con.row_factory = sqlite3.Row
+        rows = con.execute("""
+            SELECT filing_api_id, filing_description, filing_date,
+                   staff, doc_id, is_protective_disclosure,
+                   question, response, attachment_filenames, confidentiality_files
+            FROM qa_responses
+            ORDER BY staff, filing_date, doc_id
+        """).fetchall()
+        con.close()
+        for row in rows:
+            r = dict(row)
+            r["docket_id"] = docket["id"]
+            all_rows.append(r)
+        print(f"  Loaded {len(rows)} records from docket {docket['id']}")
+        loaded.append(docket)
+    return all_rows, loaded
 
 
 HTML_TEMPLATE = """<!DOCTYPE html>
@@ -38,7 +56,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Georgia PSC Docket 55378 — Staff Data Requests</title>
+<title>Georgia PSC Docket Explorer</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.4/styles/ag-grid.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.4/styles/ag-theme-quartz.css"/>
 <style>
@@ -60,6 +78,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     --badge-LA:  #d97706; --badge-LA-bg:  #fef3c7;
     --badge-PIA: #dc2626; --badge-PIA-bg: #fee2e2;
 
+__DOCKET_CSS_VARS__
     --panel-width: 480px;
     --header-height: 64px;
   }
@@ -114,8 +133,12 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   }
   #quickFilter:focus { border-color: var(--color-accent); background: #fff; }
 
-  .staff-filters { display: flex; gap: 6px; }
-  .staff-btn {
+  /* ── Filter groups (docket + staff rows) ── */
+  .filter-groups { display: flex; flex-direction: column; gap: 5px; }
+  .filter-row { display: flex; gap: 6px; }
+  .filter-row:empty { display: none; }
+
+  .staff-btn, .docket-btn {
     padding: 4px 10px;
     border-radius: 20px;
     border: 1.5px solid transparent;
@@ -125,14 +148,16 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     transition: opacity .15s, border-color .15s;
     background: transparent;
   }
-  .staff-btn.active { border-color: currentColor; }
-  .staff-btn:not(.active) { opacity: .4; }
+  .staff-btn.active, .docket-btn.active { border-color: currentColor; }
+  .staff-btn:not(.active), .docket-btn:not(.active) { opacity: .4; }
+
   .staff-btn[data-staff="DEA"] { color: var(--badge-DEA); background: var(--badge-DEA-bg); }
   .staff-btn[data-staff="GS"]  { color: var(--badge-GS);  background: var(--badge-GS-bg);  }
   .staff-btn[data-staff="JKA"] { color: var(--badge-JKA); background: var(--badge-JKA-bg); }
   .staff-btn[data-staff="LA"]  { color: var(--badge-LA);  background: var(--badge-LA-bg);  }
   .staff-btn[data-staff="PIA"] { color: var(--badge-PIA); background: var(--badge-PIA-bg); }
 
+__DOCKET_BTN_CSS__
   .record-count { font-size: 12px; color: var(--color-muted); white-space: nowrap; margin-left: auto; }
 
   /* ── Main layout ── */
@@ -280,6 +305,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   .badge-LA  { color: var(--badge-LA);  background: var(--badge-LA-bg);  }
   .badge-PIA { color: var(--badge-PIA); background: var(--badge-PIA-bg); }
 
+__DOCKET_BADGE_CSS__
   /* PD tag */
   .pd-tag {
     display: inline-block;
@@ -311,8 +337,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
 <header>
   <div class="header-title">
-    <h1>Georgia PSC Docket 55378</h1>
-    <span>Staff Data Request Responses — Georgia Power Company</span>
+    <h1>Georgia PSC Docket Explorer</h1>
+    <span>__SUBTITLE__</span>
   </div>
 
   <div class="search-wrap">
@@ -322,7 +348,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     <input type="text" id="quickFilter" placeholder="Search questions and responses…" autocomplete="off">
   </div>
 
-  <div class="staff-filters" id="staffFilters"></div>
+  <div class="filter-groups">
+    <div class="filter-row" id="docketFilters"></div>
+    <div class="filter-row" id="staffFilters"></div>
+  </div>
 
   <div class="record-count" id="recordCount"></div>
 </header>
@@ -339,10 +368,26 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <script src="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.4/dist/ag-grid-community.min.noStyle.js"></script>
 <script>
 const RAW_DATA = __DATA_PLACEHOLDER__;
+const MULTI_DOCKET = __MULTI_DOCKET__;
+const STAFFS = __STAFFS_JSON__;
+const DOCKET_LIST = __DOCKETS_JSON__;
 
-// ── Staff filter state ──────────────────────────────────────────────────────
-const STAFFS = ['DEA', 'GS', 'JKA', 'LA', 'PIA'];
+// ── Filter state ────────────────────────────────────────────────────────────
 const activeStaff = new Set(STAFFS);
+const activeDockets = new Set(DOCKET_LIST.map(d => d.id));
+
+// ── Build filter buttons ────────────────────────────────────────────────────
+function buildDocketButtons() {
+  const container = document.getElementById('docketFilters');
+  DOCKET_LIST.forEach(d => {
+    const btn = document.createElement('button');
+    btn.className = 'docket-btn active';
+    btn.dataset.docket = d.id;
+    btn.textContent = d.label;
+    btn.addEventListener('click', () => toggleDocket(d.id, btn));
+    container.appendChild(btn);
+  });
+}
 
 function buildStaffButtons() {
   const container = document.getElementById('staffFilters');
@@ -356,9 +401,21 @@ function buildStaffButtons() {
   });
 }
 
+function toggleDocket(docket, btn) {
+  if (activeDockets.has(docket)) {
+    if (activeDockets.size === 1) return;
+    activeDockets.delete(docket);
+    btn.classList.remove('active');
+  } else {
+    activeDockets.add(docket);
+    btn.classList.add('active');
+  }
+  gridApi.onFilterChanged();
+}
+
 function toggleStaff(staff, btn) {
   if (activeStaff.has(staff)) {
-    if (activeStaff.size === 1) return; // keep at least one
+    if (activeStaff.size === 1) return;
     activeStaff.delete(staff);
     btn.classList.remove('active');
   } else {
@@ -371,6 +428,10 @@ function toggleStaff(staff, btn) {
 // ── Cell renderers ──────────────────────────────────────────────────────────
 function staffRenderer(params) {
   return `<span class="badge badge-${params.value}">${params.value}</span>`;
+}
+
+function docketBadgeRenderer(params) {
+  return `<span class="badge badge-dkt-${params.value}">${params.value}</span>`;
 }
 
 function pdRenderer(params) {
@@ -393,12 +454,22 @@ function escHtml(s) {
 // ── Column definitions ──────────────────────────────────────────────────────
 const columnDefs = [
   {
+    field: 'docket_id',
+    headerName: 'Docket',
+    width: 110,
+    pinned: 'left',
+    hide: !MULTI_DOCKET,
+    cellRenderer: docketBadgeRenderer,
+    filter: false,
+    sortable: true,
+  },
+  {
     field: 'staff',
     headerName: 'Staff',
     width: 84,
     pinned: 'left',
     cellRenderer: staffRenderer,
-    filter: false, // handled by our custom buttons
+    filter: false,
     sortable: true,
   },
   {
@@ -459,11 +530,13 @@ const columnDefs = [
   },
 ];
 
-// ── External filter (staff buttons) ────────────────────────────────────────
+// ── External filter (staff + docket buttons) ────────────────────────────────
 function isExternalFilterPresent() {
+  if (MULTI_DOCKET && activeDockets.size < DOCKET_LIST.length) return true;
   return activeStaff.size < STAFFS.length;
 }
 function doesExternalFilterPass(node) {
+  if (MULTI_DOCKET && !activeDockets.has(node.data.docket_id)) return false;
   return activeStaff.has(node.data.staff);
 }
 
@@ -500,31 +573,33 @@ function updateCount() {
 }
 
 // ── Detail panel ────────────────────────────────────────────────────────────
-let currentDocId = null;
+let currentRowKey = null;
 
 function showDetail(row) {
-  if (currentDocId === row.doc_id + row.zip_source) {
+  const key = row.docket_id + row.doc_id + row.zip_source;
+  if (currentRowKey === key) {
     closeDetail();
     return;
   }
-  currentDocId = row.doc_id + row.zip_source;
+  currentRowKey = key;
 
-  const attachments = (row.attachment_filenames || '')
-    .split(';').map(s => s.trim()).filter(Boolean);
-
-  const confFiles = (row.confidentiality_files || '')
-    .split(';').map(s => s.trim()).filter(Boolean);
-
+  const attachments = (row.attachment_filenames || '').split(';').map(s => s.trim()).filter(Boolean);
+  const confFiles = (row.confidentiality_files || '').split(';').map(s => s.trim()).filter(Boolean);
   const allAttach = [...attachments, ...confFiles];
 
   const panel = document.getElementById('detailPanel');
   const inner = document.getElementById('detailInner');
+
+  const docketBadge = MULTI_DOCKET
+    ? `<span class="badge badge-dkt-${row.docket_id}">${row.docket_id}</span>`
+    : '';
 
   inner.innerHTML = `
     <div class="detail-header">
       <div class="detail-meta">
         <div class="detail-doc-id">${escHtml(row.doc_id)}</div>
         <div class="detail-sub">
+          ${docketBadge}
           <span class="badge badge-${row.staff}">${row.staff}</span>
           <span>${row.filing_date}</span>
           ${row.is_protective_disclosure === 'yes' ? '<span class="pd-tag">Protective Disclosure</span>' : ''}
@@ -565,7 +640,7 @@ function showDetail(row) {
 }
 
 function closeDetail() {
-  currentDocId = null;
+  currentRowKey = null;
   document.getElementById('detailPanel').classList.remove('open');
   gridApi.deselectAll();
 }
@@ -575,6 +650,7 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeDetail();
 });
 
+if (MULTI_DOCKET) buildDocketButtons();
 buildStaffButtons();
 </script>
 </body>
@@ -583,11 +659,49 @@ buildStaffButtons();
 
 
 def main():
-    data = load_data()
-    json_str = json.dumps(data, ensure_ascii=False)
-    html = HTML_TEMPLATE.replace("__DATA_PLACEHOLDER__", json_str)
+    with open(DOCKETS_CONFIG) as f:
+        config = json.load(f)
+
+    data, loaded_dockets = load_all_data(config["dockets"])
+    multi_docket = len(loaded_dockets) > 1
+
+    staffs = sorted(set(r["staff"] for r in data if r["staff"]))
+
+    dockets_info = []
+    for i, d in enumerate(loaded_dockets):
+        pal = DOCKET_PALETTE[i % len(DOCKET_PALETTE)]
+        dockets_info.append({"id": d["id"], "label": d["label"], **pal})
+
+    docket_css_vars = "\n".join(
+        f"    --badge-dkt-{d['id']}: {d['color']}; --badge-dkt-{d['id']}-bg: {d['bg']};"
+        for d in dockets_info
+    )
+    docket_badge_css = "\n".join(
+        f"  .badge-dkt-{d['id']} {{ color: {d['color']}; background: {d['bg']}; }}"
+        for d in dockets_info
+    )
+    docket_btn_css = "\n".join(
+        f"  .docket-btn[data-docket=\"{d['id']}\"] {{ color: {d['color']}; background: {d['bg']}; }}"
+        for d in dockets_info
+    )
+
+    if multi_docket:
+        subtitle = "Dockets: " + ", ".join(d["label"] for d in loaded_dockets)
+    else:
+        subtitle = loaded_dockets[0]["subtitle"] if loaded_dockets else "Staff Data Requests"
+
+    html = HTML_TEMPLATE
+    html = html.replace("__DATA_PLACEHOLDER__", json.dumps(data, ensure_ascii=False))
+    html = html.replace("__DOCKETS_JSON__", json.dumps([{"id": d["id"], "label": d["label"]} for d in dockets_info]))
+    html = html.replace("__STAFFS_JSON__", json.dumps(staffs))
+    html = html.replace("__MULTI_DOCKET__", "true" if multi_docket else "false")
+    html = html.replace("__SUBTITLE__", subtitle)
+    html = html.replace("__DOCKET_CSS_VARS__", docket_css_vars)
+    html = html.replace("__DOCKET_BADGE_CSS__", docket_badge_css)
+    html = html.replace("__DOCKET_BTN_CSS__", docket_btn_css)
+
     OUT.write_text(html, encoding="utf-8")
-    print(f"Generated {OUT} ({OUT.stat().st_size:,} bytes, {len(data)} records)")
+    print(f"Generated {OUT} ({OUT.stat().st_size:,} bytes, {len(data)} records, {len(loaded_dockets)} docket(s))")
 
 
 if __name__ == "__main__":

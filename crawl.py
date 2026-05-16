@@ -1,8 +1,13 @@
 """
-Georgia PSC Docket 55378 - STF-PIA crawler
-Fetches all Georgia Power STF-PIA-* filings, extracts Q&A pairs, builds a database.
+Georgia PSC docket crawler.
+Fetches filings for a configured docket, extracts Q&A pairs, builds a database.
+
+Usage:
+  python crawl.py                    # uses first docket in dockets.json
+  python crawl.py --docket 55378
 """
 
+import argparse
 import csv
 import io
 import json
@@ -16,14 +21,7 @@ from pathlib import Path
 
 from docx import Document
 
-# ── Config ──────────────────────────────────────────────────────────────────
-DOCKET_ID = 55378
 OUTPUT_DIR = Path("output")
-ZIPS_DIR = OUTPUT_DIR / "zips"
-EXTRACTED_DIR = OUTPUT_DIR / "extracted"
-DB_CSV = OUTPUT_DIR / "stf_pia_qa.csv"
-DB_SQLITE = OUTPUT_DIR / "stf_pia_qa.sqlite"
-MANIFEST_JSON = OUTPUT_DIR / "manifest.json"
 
 DELAY_BETWEEN_PAGES = 2   # seconds between document-page fetches
 DELAY_BETWEEN_ZIPS = 5    # seconds between ZIP downloads
@@ -32,6 +30,20 @@ HEADERS = {
     "User-Agent": "Mozilla/5.0 (research crawler; tylerjordanfitch@gmail.com)",
     "Referer": "https://psc.ga.gov/",
 }
+
+STF_PATTERN = r'((?:PD\s+)?STF-[A-Z]{2,4}-\s*\d+\s*-\s*\d+)'
+
+
+def load_docket_config(docket_id=None):
+    with open("dockets.json") as f:
+        config = json.load(f)
+    dockets = config["dockets"]
+    if docket_id is None:
+        return dockets[0]
+    for d in dockets:
+        if d["id"] == docket_id:
+            return d
+    raise ValueError(f"Docket '{docket_id}' not found in dockets.json")
 
 
 # ── HTTP helpers ─────────────────────────────────────────────────────────────
@@ -42,14 +54,18 @@ def fetch(url, binary=False):
 
 
 # ── Step 1: collect all matching filings from the API ──────────────────────
-def get_stf_filings():
+def get_stf_filings(docket_config):
+    docket_id = docket_config["id"]
+    company_filter = docket_config["company_filter"]
+    doc_pattern = docket_config["doc_pattern"]
+
     base = (
         "https://psc.ga.gov/search/service-facts-docket/"
-        f"?docketId={DOCKET_ID}&sortDirection=ASC&sortColumn=Filed"
+        f"?docketId={docket_id}&sortDirection=ASC&sortColumn=Filed"
         "&searchText=&pageSize=50&pageNumber={page}"
     )
 
-    print("Fetching filing list from PSC API...")
+    print(f"Fetching filing list for docket {docket_id} from PSC API...")
     first = json.loads(fetch(base.format(page=1)))
     total = first["resultsCount"]
     pages = math.ceil(total / 50)
@@ -62,26 +78,23 @@ def get_stf_filings():
         all_items.extend(data["resultsItems"])
         print(f"  Page {page}/{pages}: {len(data['resultsItems'])} items")
 
-    # Filter: Georgia Power + any STF-XXX- pattern in description
     matches = []
     for item in all_items:
         companies = [c["companyName"] for c in item.get("companyDetailsVm", [])]
         desc = item.get("description", "")
-        if any("Georgia Power" in c for c in companies) and re.search(r'STF-[A-Z]{2,4}-', desc):
+        if any(company_filter in c for c in companies) and re.search(doc_pattern, desc):
             matches.append(item)
 
-    print(f"\nFound {len(matches)} STF-* filings from Georgia Power Company")
+    print(f"\nFound {len(matches)} matching filings")
     return matches
 
 
 # ── Step 2: get attachment download URLs from each document page ───────────
 def get_attachment_urls(document_id):
-    """Returns list of (filename, download_url) tuples for a document page."""
     url = f"https://psc.ga.gov/search/facts-document/?documentId={document_id}"
     html = fetch(url)
     pattern = r'href="(https://services\.psc\.ga\.gov[^"]+DownloadFile[^"]+)"[^>]*>.*?([^\n<>]+\.(?:zip|pdf|docx|xlsx|xls|doc))'
     matches = re.findall(pattern, html, re.IGNORECASE | re.DOTALL)
-    # Clean up filenames (strip whitespace and icon chars)
     return [(fname.strip(), dl_url) for dl_url, fname in matches]
 
 
@@ -98,40 +111,31 @@ def download_zip(download_url, dest_path):
 
 # ── Step 4: parse Q&A from a .docx file ─────────────────────────────────────
 def parse_qa_docx(docx_bytes):
-    """
-    Returns dict with keys: doc_id, question, response, raw_text
-    or None if the file doesn't look like a Q&A response.
-    """
     doc = Document(io.BytesIO(docx_bytes))
     paragraphs = [p.text.strip() for p in doc.paragraphs]
-    # Remove blanks for scanning, but keep positions
     full_text = "\n".join(p for p in paragraphs if p)
 
-    # Detect Q&A structure
-    if "Question:" not in full_text and "QUESTION:" not in full_text.upper():
+    if not re.search(r'(?i)question\s*:', full_text):
         return None
-    if "Response:" not in full_text and "RESPONSE:" not in full_text.upper():
+    if not re.search(r'(?i)response\s*:', full_text):
         return None
 
-    # Find doc_id: look for STF-PIA-X-Y pattern in the first ~10 non-blank paragraphs
     doc_id = ""
-    for p in [p for p in paragraphs if p][:10]:
-        m = re.search(r'((?:PD\s+)?STF-PIA-\d+-\d+)', p)
+    for p in [p for p in paragraphs if p][:15]:
+        m = re.search(STF_PATTERN, p, re.IGNORECASE)
         if m:
-            doc_id = m.group(1)
+            doc_id = re.sub(r'(?<=STF-)\s+|\s+(?=-)', '', m.group(1).upper())
             break
     if not doc_id:
         doc_id = next((p for p in paragraphs if p), "")
 
-    # Split on Question / Response markers (case-insensitive)
-    q_match = re.search(r'(?i)^question\s*:?\s*$', full_text, re.MULTILINE)
-    r_match = re.search(r'(?i)^response\s*:?\s*$', full_text, re.MULTILINE)
+    q_match = re.search(r'(?im)^question\s*:?\s*$', full_text)
+    r_match = re.search(r'(?im)^response\s*:?\s*$', full_text)
 
-    if q_match and r_match:
+    if q_match and r_match and q_match.start() < r_match.start():
         question = full_text[q_match.end():r_match.start()].strip()
         response = full_text[r_match.end():].strip()
     else:
-        # Fallback: split on inline "Question:" / "Response:"
         parts = re.split(r'(?i)response\s*:', full_text, maxsplit=1)
         response = parts[1].strip() if len(parts) > 1 else ""
         q_parts = re.split(r'(?i)question\s*:', parts[0], maxsplit=1)
@@ -141,30 +145,23 @@ def parse_qa_docx(docx_bytes):
         "doc_id": doc_id,
         "question": question,
         "response": response,
-        "raw_text": full_text,
     }
 
 
 # ── Step 5: classify files inside a ZIP ─────────────────────────────────────
 def classify_zip_contents(zip_names):
-    """
-    Returns:
-      qa_files          - list of names that look like individual Q&A responses
-      confidentiality   - list of names that look like confidentiality requests
-      attachments       - everything else (xlsx, pdf, other docx)
-    """
     qa, conf, attach = [], [], []
     for name in zip_names:
         basename = Path(name).name
         lower = basename.lower()
         if "drsum" in lower:
-            continue  # summary doc, skip
+            continue
         if "verification" in lower and name.endswith(".pdf"):
-            continue  # signature page, skip
+            continue
         if "confidential" in lower:
             conf.append(name)
         elif (name.endswith(".docx")
-              and re.search(r'STF-PIA-\d+-\d+', basename)
+              and re.search(r'STF-[A-Z]{2,4}-\d+-\d+', basename, re.IGNORECASE)
               and "attachment" not in lower):
             qa.append(name)
         else:
@@ -174,14 +171,31 @@ def classify_zip_contents(zip_names):
 
 # ── Main ─────────────────────────────────────────────────────────────────────
 def main():
+    parser = argparse.ArgumentParser(description="Crawl a Georgia PSC docket")
+    parser.add_argument("--docket", default=None, help="Docket ID from dockets.json (default: first entry)")
+    args = parser.parse_args()
+
+    docket_config = load_docket_config(args.docket)
+    docket_id = docket_config["id"]
+
+    docket_dir = OUTPUT_DIR / f"docket_{docket_id}"
+    zips_dir = docket_dir / "zips"
+    extracted_dir = docket_dir / "extracted"
+    db_csv = docket_dir / "qa.csv"
+    db_sqlite = docket_dir / "qa.sqlite"
+    manifest_json = docket_dir / "manifest.json"
+
     OUTPUT_DIR.mkdir(exist_ok=True)
-    ZIPS_DIR.mkdir(exist_ok=True)
-    EXTRACTED_DIR.mkdir(exist_ok=True)
+    docket_dir.mkdir(exist_ok=True)
+    zips_dir.mkdir(exist_ok=True)
+    extracted_dir.mkdir(exist_ok=True)
 
-    filings = get_stf_filings()
+    print(f"Docket: {docket_id} — {docket_config['label']}")
 
-    rows = []          # final Q&A records
-    manifest = []      # per-filing summary for debugging
+    filings = get_stf_filings(docket_config)
+
+    rows = []
+    manifest = []
 
     for filing_idx, filing in enumerate(filings):
         doc_id_api = filing["documentId"]
@@ -189,7 +203,6 @@ def main():
         filed_date = filing["filedDateString"]
         print(f"\n[{filing_idx+1}/{len(filings)}] docId={doc_id_api} | {description}")
 
-        # Get attachment URLs from the document page
         time.sleep(DELAY_BETWEEN_PAGES)
         attachments_on_page = get_attachment_urls(doc_id_api)
         if not attachments_on_page:
@@ -197,16 +210,15 @@ def main():
             manifest.append({"doc_id_api": doc_id_api, "description": description, "status": "no_attachments"})
             continue
 
-        filing_dir = EXTRACTED_DIR / f"{doc_id_api}"
+        filing_dir = extracted_dir / f"{doc_id_api}"
         filing_dir.mkdir(exist_ok=True)
 
         for att_fname, att_url in attachments_on_page:
-            # Only process ZIP files (the PSC packages everything in ZIPs)
             if not att_fname.lower().endswith(".zip"):
                 print(f"  Skipping non-ZIP attachment: {att_fname}")
                 continue
 
-            zip_path = ZIPS_DIR / f"{doc_id_api}_{att_fname}"
+            zip_path = zips_dir / f"{doc_id_api}_{att_fname}"
             time.sleep(DELAY_BETWEEN_ZIPS)
             zip_bytes = download_zip(att_url, zip_path)
 
@@ -216,18 +228,15 @@ def main():
 
             print(f"    ZIP contents: {len(qa_files)} Q&A, {len(conf_files)} confidentiality, {len(other_files)} other")
 
-            # Extract all files to disk
             zf.extractall(filing_dir)
 
-            # Parse each Q&A docx
             for qa_name in qa_files:
                 qa_data = parse_qa_docx(zf.read(qa_name))
                 if not qa_data:
                     print(f"    WARNING: could not parse Q&A from {qa_name}")
                     continue
 
-                # Find attachments that share this Q&A's doc_id prefix
-                qa_basename = Path(qa_name).stem  # e.g. "STF-PIA-1-1"
+                qa_basename = Path(qa_name).stem
                 related_attachments = [
                     Path(n).name for n in other_files
                     if qa_basename in Path(n).name
@@ -264,17 +273,15 @@ def main():
     ]
 
     if rows:
-        # Write CSV
-        with open(DB_CSV, "w", newline="", encoding="utf-8") as f:
+        with open(db_csv, "w", newline="", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(rows)
-        print(f"\nWrote {len(rows)} Q&A records to {DB_CSV}")
+        print(f"\nWrote {len(rows)} Q&A records to {db_csv}")
 
-        # Write SQLite (Datasette-compatible)
-        if DB_SQLITE.exists():
-            DB_SQLITE.unlink()
-        con = sqlite3.connect(DB_SQLITE)
+        if db_sqlite.exists():
+            db_sqlite.unlink()
+        con = sqlite3.connect(db_sqlite)
         con.execute(f"""
             CREATE TABLE qa_responses (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -297,14 +304,13 @@ def main():
         )
         con.commit()
         con.close()
-        print(f"Wrote SQLite database to {DB_SQLITE}")
+        print(f"Wrote SQLite database to {db_sqlite}")
     else:
         print("\nNo Q&A records extracted.")
 
-    # Write manifest
-    with open(MANIFEST_JSON, "w", encoding="utf-8") as f:
+    with open(manifest_json, "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2)
-    print(f"Wrote manifest to {MANIFEST_JSON}")
+    print(f"Wrote manifest to {manifest_json}")
 
 
 if __name__ == "__main__":

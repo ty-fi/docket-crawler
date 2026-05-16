@@ -26,20 +26,20 @@ jobs:
       - name: Restore ZIP cache
         uses: actions/cache@v4
         with:
-          path: output/zips
+          path: output/docket_*/zips
           # New cache entry per run; restore-keys picks up the most recent prior run
-          key: zips-v1-${{ github.run_id }}
+          key: zips-v2-${{ github.run_id }}
           restore-keys: |
-            zips-v1-
+            zips-v2-
 
-      - name: Create output dirs
-        run: mkdir -p output/zips output/extracted
-
-      - name: Crawl new filings
-        run: python crawl.py
-
-      - name: Re-parse all ZIPs
-        run: python reparse.py
+      - name: Process all dockets
+        run: |
+          DOCKETS=$(python -c "import json; print(' '.join(d['id'] for d in json.load(open('dockets.json'))['dockets']))")
+          for did in $DOCKETS; do
+            mkdir -p output/docket_${did}/zips output/docket_${did}/extracted
+            python crawl.py --docket $did
+            python reparse.py --docket $did
+          done
 
       - name: Generate site
         run: python generate_site.py
@@ -48,10 +48,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add output/stf_pia_qa.csv \
-                  output/stf_pia_qa.sqlite \
-                  output/index.html \
-                  output/manifest.json
+          git add output/docket_*/qa.csv \
+                  output/docket_*/qa.sqlite \
+                  output/docket_*/manifest.json \
+                  output/index.html
           # Only commit if something actually changed
           git diff --staged --quiet \
             && echo "No changes to commit." \
