@@ -7,6 +7,14 @@
       "company_filter": "Georgia Power",
       "request_prefix": "STF",
       "party_label": "Staff"
+    },
+    {
+      "id": "44280",
+      "label": "Docket 44280",
+      "subtitle": "Staff Data Requests — Georgia Power 2022 Rate Case",
+      "company_filter": "Georgia Power",
+      "request_prefix": "STF",
+      "party_label": "Staff"
     }
   ]
 }

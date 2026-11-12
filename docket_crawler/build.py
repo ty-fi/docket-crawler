@@ -15,7 +15,7 @@ from .classify import classify_members
 from .config import DocketConfig
 from .fetch import load_manifest
 from .ids import first_id, has_pd_marker, id_for_member
-from .parse import parse_qa_docx
+from .parse import parse_qa_docx_all
 
 FIELDS = [
     "row_id", "docket_id", "doc_id", "party", "set_no", "item_no",
@@ -30,7 +30,17 @@ ListSep = "; "
 
 # References to trade-secret documents in response text: "See TS STF-DEA-1-1 Attachment A",
 # "TS_Zip_AllResponses", "TS-STF-DEA-1-15 Attachment". Case-sensitive on purpose.
+# Redaction markers in public-disclosure text: "REDACTED" in place of figures, or a
+# response that is just "Redacted". Lower-case prose ("has not redacted") doesn't count.
+_REDACTED = re.compile(r"\bREDACTED\b|^\s*Redacted\.?\s*$", re.MULTILINE)
 _TS_REFERENCE = re.compile(r"\bTS[\s_-]+[A-Z0-9(\"“]")
+
+
+def _is_ts_attachment(name: str, prefix: str) -> bool:
+    """An attachment that is the PD version of a trade-secret file, or the trade-secret
+    assertion letter itself. PD may lead the name or appear as its own word
+    ("Attachments A-AP PD.docx", "Attachment A PUBLIC DISCLOSURE.xlsx")."""
+    return has_pd_marker(name, prefix) or "assertion letter" in name.lower()
 
 
 def has_trade_secret(is_pd: bool, attachments: List[str], prefix: str, *texts: str) -> bool:
@@ -41,7 +51,7 @@ def has_trade_secret(is_pd: bool, attachments: List[str], prefix: str, *texts: s
     itself PD, one of its attachments is PD, or the text cites a "TS ..." document."""
     return (
         is_pd
-        or any(has_pd_marker(a, prefix) or a.upper().startswith(("PD ", "PD-", "PD_")) for a in attachments)
+        or any(_is_ts_attachment(a, prefix) for a in attachments)
         or any(_TS_REFERENCE.search(t or "") for t in texts)
     )
 
@@ -94,55 +104,78 @@ def _rows_for_source(cfg: DocketConfig, filing: dict, att: dict, path: Path) -> 
     for member in groups.qa:
         name = PurePosixPath(member).name
         try:
-            parsed = parse_qa_docx(read(member), cfg.request_prefix)
+            parsed_all = parse_qa_docx_all(read(member), cfg.request_prefix)
         except Exception as e:
             notes.append(f"unreadable {member}: {type(e).__name__}: {e}")
             continue
-        if parsed is None:
+        if not parsed_all:
             notes.append(f"no Question/Response structure in {member}")
             continue
 
+        combined = len(parsed_all) > 1
         file_id = first_id(name, cfg.request_prefix)
-        # Prefer the file name: where they disagree in real filings, the ID typed in the
-        # document header is a copy-paste leftover from another request (e.g. a file
-        # STF-DEA-2-3.docx whose header says STF-DEA-2-1). Flag the disagreement.
-        rid = file_id or parsed.request_id
-        warning = ""
-        if parsed.request_id and file_id and parsed.request_id != file_id:
-            warning = f"document header says {parsed.request_id}"
-        if not parsed.question or not parsed.response:
-            warning = "; ".join(filter(None, [warning, "empty question or response"]))
+        name_pd = has_pd_marker(name, cfg.request_prefix)
+        for parsed in parsed_all:
+            warning = ""
+            if combined:
+                # One document answering many requests: each section's heading is its ID.
+                rid = parsed.request_id
+                row_id = _row_id(cfg.id, filing["document_id"], att["filename"], member, rid)
+            else:
+                # Prefer the file name: where they disagree in real filings, the ID typed in
+                # the document header is a copy-paste leftover from another request (a file
+                # STF-DEA-2-3.docx whose header says STF-DEA-2-1). Flag the disagreement.
+                rid = file_id or parsed.request_id
+                row_id = _row_id(cfg.id, filing["document_id"], att["filename"], member)
+                if parsed.request_id and file_id and parsed.request_id != file_id:
+                    warning = f"document header says {parsed.request_id}"
+            if not parsed.question or not parsed.response:
+                warning = "; ".join(filter(None, [warning, "empty question or response"]))
 
-        related = sorted(attachments_by_id.get(str(rid), []))
-        is_pd = has_pd_marker(name, cfg.request_prefix)
-        seen_ids.add(str(rid))
-        rows.append({
-            "row_id": _row_id(cfg.id, filing["document_id"], att["filename"], member),
-            "docket_id": cfg.id,
-            "doc_id": str(rid),
-            "party": rid.party,
-            "set_no": rid.set_no,
-            "item_no": rid.item_no,
-            "is_pd": "yes" if is_pd else "no",
-            "has_trade_secret": "yes" if has_trade_secret(
-                is_pd, related, cfg.request_prefix, parsed.question, parsed.response) else "no",
-            "filed_date": filing["filed_date"],
-            "document_id": filing["document_id"],
-            "filing_description": filing["description"],
-            "filing_url": filing["url"],
-            "source_file": att["filename"],
-            "source_url": att["url"],
-            "source_member": member,
-            "question": parsed.question,
-            "response": parsed.response,
-            "attachments": ListSep.join(related),
-            "confidential_files": confidential,
-            "parse_warning": warning,
-        })
+            related = sorted(attachments_by_id.get(str(rid), []))
+            # PD: the file is named as the public-disclosure version, or its text is redacted.
+            is_pd = name_pd or _REDACTED.search(parsed.question + "\n" + parsed.response) is not None
+            seen_ids.add(str(rid))
+            rows.append({
+                "row_id": row_id,
+                "docket_id": cfg.id,
+                "doc_id": str(rid),
+                "party": rid.party,
+                "set_no": rid.set_no,
+                "item_no": rid.item_no,
+                "is_pd": "yes" if is_pd else "no",
+                "has_trade_secret": "yes" if has_trade_secret(
+                    is_pd, related, cfg.request_prefix, parsed.question, parsed.response) else "no",
+                "filed_date": filing["filed_date"],
+                "document_id": filing["document_id"],
+                "filing_description": filing["description"],
+                "filing_url": filing["url"],
+                "source_file": att["filename"],
+                "source_url": att["url"],
+                "source_member": member,
+                "question": parsed.question,
+                "response": parsed.response,
+                "attachments": ListSep.join(related),
+                "confidential_files": confidential,
+                "parse_warning": warning,
+            })
 
-    orphan = [k for k in attachments_by_id if k not in seen_ids]
-    for k in orphan:
-        notes.append(f"attachments for {k} but no Q&A document: {attachments_by_id[k]}")
+    by_set_item: Dict[Tuple[int, int], List[dict]] = defaultdict(list)
+    for row in rows:
+        by_set_item[(row["set_no"], row["item_no"])].append(row)
+    for k in [k for k in attachments_by_id if k not in seen_ids]:
+        _, _, set_no, item_no = k.rsplit("-", 3)
+        matches = by_set_item.get((int(set_no), int(item_no)), [])
+        if len(matches) == 1:
+            # A typo in the party code (STF-TIA-1-16 beside STF-TAI-1-16.docx).
+            row = matches[0]
+            files = sorted(set(filter(None, row["attachments"].split(ListSep))) | set(attachments_by_id[k]))
+            row["attachments"] = ListSep.join(files)
+            if any(_is_ts_attachment(a, cfg.request_prefix) for a in attachments_by_id[k]):
+                row["has_trade_secret"] = "yes"
+            row["parse_warning"] = "; ".join(filter(None, [row["parse_warning"], f"attachments named {k}"]))
+        else:
+            notes.append(f"attachments for {k} but no Q&A document: {attachments_by_id[k]}")
     return rows, notes
 
 

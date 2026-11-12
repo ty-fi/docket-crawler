@@ -70,22 +70,22 @@ Add an entry to `dockets.json`:
 | `label`, `subtitle` | shown on the site |
 | `company_filter` | substring of the filing company's name (case-insensitive) |
 | `request_prefix` | prefix of request IDs, e.g. `STF` for `STF-JKA-1-4` (default `STF`) |
-| `party_label` | what the 2–4 letter code after the prefix means, used as a column header (default `Staff`) |
-| `description_pattern` | optional regex filing descriptions must match (default `<prefix>-[A-Z]{2,4}-`) |
+| `party_label` | what the party code after the prefix means, used as a column header (default `Staff`) |
+| `description_pattern` | optional regex filing descriptions must match (default `<prefix>-<party code>-`, where a party code is 2–4 letters/digits starting with a letter, e.g. `JKA`, `PCMG`, `NU1`) |
 
 Then run `python -m docket_crawler all --docket <id>` (or trigger the workflow from the Actions tab)
 and check the parse notes printed at the end for files it could not handle.
 
 ## Data
 
-`output/docket_<id>/qa.csv` has one row per response document:
+`output/docket_<id>/qa.csv` has one row per response. Usually that is one document; a document that answers several requests (`STF-LA-9-1 - 101.docx`) is split at each request-ID heading.
 
 | column | |
 | --- | --- |
 | `row_id` | stable ID (hash of docket, filing, file and path in the archive) |
 | `doc_id`, `party`, `set_no`, `item_no` | request ID, e.g. `STF-JKA-1-4` → `JKA`, 1, 4 |
 | `response_seq`, `is_supplemental` | 1 for the first response to a request, 2+ for later (supplemental) ones, by filing date |
-| `is_pd` | `yes` when the response document is a **public disclosure (PD)** version: its text is redacted, and a trade-secret version was filed confidentially (file name starts with `PD`) |
+| `is_pd` | `yes` when the response is a **public disclosure (PD)** version: its text is redacted, and a trade-secret version was filed confidentially. Set when the file name says so (`PD STF-…`, `… PD.docx`, `… PUBLIC DISCLOSURE.docx`) or the text contains `REDACTED` |
 | `has_trade_secret` | `yes` when any of this response's material has a non-public trade-secret version: the response is PD, an attachment is PD, or the text cites a `TS …` document |
 | `filed_date` | ISO date of the filing |
 | `document_id`, `filing_description`, `filing_url` | the PSC filing |

@@ -1,0 +1,2065 @@
+{
+  "version": 2,
+  "docket_id": "44280",
+  "filings": [
+    {
+      "document_id": 190370,
+      "description": "STF-PIA-1 Data Request Responses",
+      "filed_date": "2022-06-08",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=190370",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-1_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/190370/72059",
+          "cache_name": "190370_dkt_44280_stf-pia-1_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 190632,
+      "description": "STF-PIA-2 Data Request Responses",
+      "filed_date": "2022-07-05",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=190632",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-2.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/190632/72338",
+          "cache_name": "190632_dkt_44280_stf-pia-2.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 190765,
+      "description": "STF-LA-1 PD Data Request Responses",
+      "filed_date": "2022-07-14",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=190765",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-la-1_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/190765/72477",
+          "cache_name": "190765_dkt_44280_stf-la-1_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 190805,
+      "description": "STF-TAI-1 Data Request Responses",
+      "filed_date": "2022-07-15",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=190805",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-tai-1_1-3_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/190805/72543",
+          "cache_name": "190805_dkt_44280_stf-tai-1_1-3_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 190808,
+      "description": "STF-AI-1 Data Request Responses to 1, 10 & 11",
+      "filed_date": "2022-07-15",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=190808",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-ai-1_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/190808/72546",
+          "cache_name": "190808_dkt_44280_stf-ai-1_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 190809,
+      "description": "STF-PCMG-1 Data Request Responses to 5, 6, 7, 8",
+      "filed_date": "2022-07-15",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=190809",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pcmg-1.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/190809/72547",
+          "cache_name": "190809_dkt_44280_stf-pcmg-1.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 190835,
+      "description": "STF-TAI-1-16 Data Request Responses",
+      "filed_date": "2022-07-19",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=190835",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-tai-1-16_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/190835/72571",
+          "cache_name": "190835_dkt_44280_stf-tai-1-16_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 190910,
+      "description": "STF-LA-2 Data Request Responses",
+      "filed_date": "2022-07-25",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=190910",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-la-2_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/190910/72647",
+          "cache_name": "190910_dkt_44280_stf-la-2_pd.zip"
+        },
+        {
+          "filename": "STF-LA-2-34.docx",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/190910/72680",
+          "cache_name": "190910_STF-LA-2-34.docx"
+        },
+        {
+          "filename": "STF-LA-2-34 Attachment.xlsx",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/190910/72681",
+          "cache_name": "190910_STF-LA-2-34 Attachment.xlsx"
+        },
+        {
+          "filename": "STF-LA-2-78 Attachment D.xlsx",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/190910/72789",
+          "cache_name": "190910_STF-LA-2-78 Attachment D.xlsx"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 190915,
+      "description": "STF-JKA-1 Data Request Responses",
+      "filed_date": "2022-07-26",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=190915",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-jka-1_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/190915/72651",
+          "cache_name": "190915_dkt_44280_stf-jka-1_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 190935,
+      "description": "STF-PIA-3 Data Request Responses",
+      "filed_date": "2022-07-27",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=190935",
+      "attachments": [
+        {
+          "filename": "dlkt_44280_stf-pia-3_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/190935/72676",
+          "cache_name": "190935_dlkt_44280_stf-pia-3_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191020,
+      "description": "STF-AI-1 Data Request Responses",
+      "filed_date": "2022-08-01",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191020",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-ai-1_pd_aug_1.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191020/72723",
+          "cache_name": "191020_dkt_44280_stf-ai-1_pd_aug_1.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191025,
+      "description": "STF-TAI-1 Data Request Responses",
+      "filed_date": "2022-08-01",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191025",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-tai-1_aug_1_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191025/72728",
+          "cache_name": "191025_dkt_44280_stf-tai-1_aug_1_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191026,
+      "description": "STF-PCMG-1 Data Request Responses",
+      "filed_date": "2022-08-01",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191026",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pcmg-1_aug_1.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191026/72729",
+          "cache_name": "191026_dkt_44280_stf-pcmg-1_aug_1.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191061,
+      "description": "STF-JKA-2 Data Request Responses",
+      "filed_date": "2022-08-04",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191061",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-jka-2_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191061/72777",
+          "cache_name": "191061_dkt_44280_stf-jka-2_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191098,
+      "description": "STF-NEC-1 Data Request Responses",
+      "filed_date": "2022-08-05",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191098",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-nec-1_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191098/72794",
+          "cache_name": "191098_dkt_44280_stf-nec-1_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191124,
+      "description": "STF-REC-1 Data Request Responses",
+      "filed_date": "2022-08-08",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191124",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-rec-1_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191124/72819",
+          "cache_name": "191124_dkt_44280_stf-rec-1_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191125,
+      "description": "STF-NEC-2 Data Request Responses",
+      "filed_date": "2022-08-08",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191125",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-nec-2_pd (1).zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191125/72820",
+          "cache_name": "191125_dkt_44280_stf-nec-2_pd (1).zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191127,
+      "description": "STF-WG-1 Data Request Responses.",
+      "filed_date": "2022-08-08",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191127",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-wg-1_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191127/72822",
+          "cache_name": "191127_dkt_44280_stf-wg-1_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191164,
+      "description": "STF-PIA-4 Data Request Responses",
+      "filed_date": "2022-08-10",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191164",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-4_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191164/72836",
+          "cache_name": "191164_dkt_44280_stf-pia-4_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191175,
+      "description": "DKT 44280 STF-PIA-5 Data Request Responses",
+      "filed_date": "2022-08-12",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191175",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-5_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191175/72865",
+          "cache_name": "191175_dkt_44280_stf-pia-5_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191176,
+      "description": "DKT 44280 STF-PIA-6 Data Request Responses",
+      "filed_date": "2022-08-12",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191176",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-6_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191176/72866",
+          "cache_name": "191176_dkt_44280_stf-pia-6_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191205,
+      "description": "DKT 44280 STF-LA-3 Data Request Responses",
+      "filed_date": "2022-08-15",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191205",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-la-3.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191205/72890",
+          "cache_name": "191205_dkt_44280_stf-la-3.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191238,
+      "description": "STF-LA-1-1 Supplemental Data Request Response",
+      "filed_date": "2022-08-17",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191238",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-la-1-1_supplemental_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191238/72924",
+          "cache_name": "191238_dkt_44280_stf-la-1-1_supplemental_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191251,
+      "description": "STF-JKA-3 Data Request Responses",
+      "filed_date": "2022-08-18",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191251",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-jka-3_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191251/72937",
+          "cache_name": "191251_dkt_44280_stf-jka-3_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191258,
+      "description": "STF-BAI-1 Data Request Responses",
+      "filed_date": "2022-08-18",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191258",
+      "attachments": [
+        {
+          "filename": "drsum_44280_stf-bai-1_stamp.docx",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191258/72945",
+          "cache_name": "191258_drsum_44280_stf-bai-1_stamp.docx"
+        },
+        {
+          "filename": "dkt_44280_stf-bai-1_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191258/72946",
+          "cache_name": "191258_dkt_44280_stf-bai-1_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191270,
+      "description": "DKT 44280 STF-PIA-7 Data Request Responses",
+      "filed_date": "2022-08-22",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191270",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-7.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191270/72976",
+          "cache_name": "191270_dkt_44280_stf-pia-7.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191271,
+      "description": "DKT 44280 STF-TAI-2 Data Request Responses",
+      "filed_date": "2022-08-22",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191271",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-tai-2.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191271/72977",
+          "cache_name": "191271_dkt_44280_stf-tai-2.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191335,
+      "description": "STF-REC-2 Data Request Responses",
+      "filed_date": "2022-08-29",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191335",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-rec-2.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191335/73055",
+          "cache_name": "191335_dkt_44280_stf-rec-2.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191381,
+      "description": "STF-AI-2 Data Request Responses",
+      "filed_date": "2022-09-02",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191381",
+      "attachments": [
+        {
+          "filename": "DKT 44280 STF-AI-2 PD.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191381/73109",
+          "cache_name": "191381_DKT 44280 STF-AI-2 PD.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191412,
+      "description": "STF-AI-3 Data Request Responses",
+      "filed_date": "2022-09-06",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191412",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-ai-3_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191412/73141",
+          "cache_name": "191412_dkt_44280_stf-ai-3_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191417,
+      "description": "DKT 44280 STF-TAI-3 Data Request Responses",
+      "filed_date": "2022-09-07",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191417",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-tai-3_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191417/73144",
+          "cache_name": "191417_dkt_44280_stf-tai-3_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191431,
+      "description": "STF-JKA-4 Data Request Responses",
+      "filed_date": "2022-09-09",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191431",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-jka-4_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191431/73158",
+          "cache_name": "191431_dkt_44280_stf-jka-4_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191432,
+      "description": "STF-PIA-8 Data Request Responses",
+      "filed_date": "2022-09-09",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191432",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-8_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191432/73159",
+          "cache_name": "191432_dkt_44280_stf-pia-8_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191433,
+      "description": "STF-PIA-9 Data Request Responses",
+      "filed_date": "2022-09-09",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191433",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-9.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191433/73160",
+          "cache_name": "191433_dkt_44280_stf-pia-9.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191521,
+      "description": "STF-PCMG-2 Data Request Responses",
+      "filed_date": "2022-09-15",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191521",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pcmg-2_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191521/73235",
+          "cache_name": "191521_dkt_44280_stf-pcmg-2_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191569,
+      "description": "DKT 44280 STF-PCMG-2-23 Supplemental Response",
+      "filed_date": "2022-09-16",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191569",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pcmg-2-23_supp.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191569/73248",
+          "cache_name": "191569_dkt_44280_stf-pcmg-2-23_supp.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191581,
+      "description": "DKT 44280 STF-PIA-10 Data Request Responses",
+      "filed_date": "2022-09-19",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191581",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-10_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191581/73260",
+          "cache_name": "191581_dkt_44280_stf-pia-10_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191582,
+      "description": "DKT 44280 STF-WG-2 Data Request Responses",
+      "filed_date": "2022-09-19",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191582",
+      "attachments": [
+        {
+          "filename": "DKT 44280 STF-WG-2 PD.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191582/73275",
+          "cache_name": "191582_DKT 44280 STF-WG-2 PD.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191610,
+      "description": "STF-PCMG-3 Data Request Responses",
+      "filed_date": "2022-09-22",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191610",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pcmg-3.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191610/73288",
+          "cache_name": "191610_dkt_44280_stf-pcmg-3.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191619,
+      "description": "DKT 44280 STF-PIA-11 Data Request Responses",
+      "filed_date": "2022-09-23",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191619",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-11_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191619/73298",
+          "cache_name": "191619_dkt_44280_stf-pia-11_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191624,
+      "description": "STF-LA-4 Data Request Responses",
+      "filed_date": "2022-09-26",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191624",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-la-4_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191624/73343",
+          "cache_name": "191624_dkt_44280_stf-la-4_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191627,
+      "description": "STF-LA-5 Data Request Responses",
+      "filed_date": "2022-09-26",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191627",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-la-5_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191627/73346",
+          "cache_name": "191627_dkt_44280_stf-la-5_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191628,
+      "description": "STF-REC-3 Data Request Responses",
+      "filed_date": "2022-09-26",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191628",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-rec-3.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191628/73347",
+          "cache_name": "191628_dkt_44280_stf-rec-3.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191649,
+      "description": "Data Request STF-LA-6 Response",
+      "filed_date": "2022-09-29",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191649",
+      "attachments": [
+        {
+          "filename": "DKT 44280 STF-LA-6 PD.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191649/73418",
+          "cache_name": "191649_DKT 44280 STF-LA-6 PD.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191655,
+      "description": "DKT 44280 STF-WG-3 Data Request Responses",
+      "filed_date": "2022-09-30",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191655",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-wg-3_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191655/73420",
+          "cache_name": "191655_dkt_44280_stf-wg-3_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191656,
+      "description": "DKT 44280 STF-WG-4 Data Request Responses",
+      "filed_date": "2022-09-30",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191656",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-wg-4.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191656/73421",
+          "cache_name": "191656_dkt_44280_stf-wg-4.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191660,
+      "description": "DKT 44280 STF-LA-7 Data Request Responses",
+      "filed_date": "2022-09-30",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191660",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-la-7_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191660/73424",
+          "cache_name": "191660_dkt_44280_stf-la-7_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191669,
+      "description": "DKT 44280 STF-JKA-5 Data Request Responses",
+      "filed_date": "2022-10-03",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191669",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-jka-5_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191669/73433",
+          "cache_name": "191669_dkt_44280_stf-jka-5_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191671,
+      "description": "DKT 44280 STF-REC-4 Data Request Responses",
+      "filed_date": "2022-10-03",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191671",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-rec-4_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191671/73435",
+          "cache_name": "191671_dkt_44280_stf-rec-4_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191672,
+      "description": "DKT 44280 STF-TAI-4 Data Request Responses",
+      "filed_date": "2022-10-03",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191672",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-tai-4.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191672/73436",
+          "cache_name": "191672_dkt_44280_stf-tai-4.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191673,
+      "description": "DKT 44280 STF-LA-8 Data Request Responses",
+      "filed_date": "2022-10-03",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191673",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-la-8.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191673/73437",
+          "cache_name": "191673_dkt_44280_stf-la-8.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191710,
+      "description": "DKT 44280 STF-PIA-12 Data Request Responses",
+      "filed_date": "2022-10-06",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191710",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-12.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191710/73467",
+          "cache_name": "191710_dkt_44280_stf-pia-12.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191729,
+      "description": "DKT 44280 STF-LA-9 Data Request Responses",
+      "filed_date": "2022-10-06",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191729",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-la-9_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191729/73489",
+          "cache_name": "191729_dkt_44280_stf-la-9_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191731,
+      "description": "DKT 44280 STF-LA-10 Data Request Responses",
+      "filed_date": "2022-10-07",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191731",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-la-10_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191731/73492",
+          "cache_name": "191731_dkt_44280_stf-la-10_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191735,
+      "description": "DKT 44280 STF-LA-12 Data Request Responses",
+      "filed_date": "2022-10-07",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191735",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-la-12_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191735/73496",
+          "cache_name": "191735_dkt_44280_stf-la-12_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191743,
+      "description": "DKT 44280 STF-WG-5 Data Request Responses",
+      "filed_date": "2022-10-11",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191743",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-wg-5_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191743/73502",
+          "cache_name": "191743_dkt_44280_stf-wg-5_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191749,
+      "description": "DKT 44280 STF-TAI-5 Data Request Responses",
+      "filed_date": "2022-10-12",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191749",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-tai-5.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191749/73516",
+          "cache_name": "191749_dkt_44280_stf-tai-5.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191788,
+      "description": "DKT 44280 STF-LA-11 Data Request Responses",
+      "filed_date": "2022-10-14",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191788",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-la-11.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191788/73528",
+          "cache_name": "191788_dkt_44280_stf-la-11.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191800,
+      "description": "DKT 44280 STF-TAI-6 Data Request Responses",
+      "filed_date": "2022-10-17",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191800",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-tai-6_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191800/73537",
+          "cache_name": "191800_dkt_44280_stf-tai-6_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191801,
+      "description": "DKT 44280 STF-TAI-7 Data Request Responses",
+      "filed_date": "2022-10-17",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191801",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-tai-7.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191801/73538",
+          "cache_name": "191801_dkt_44280_stf-tai-7.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191815,
+      "description": "DKT 44280 STF-WG-6 Data Request Responses",
+      "filed_date": "2022-10-17",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191815",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-wg-6_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191815/73539",
+          "cache_name": "191815_dkt_44280_stf-wg-6_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191879,
+      "description": "DKT 44280 STF-TAI-7-1 Revised Data Request Response",
+      "filed_date": "2022-10-21",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191879",
+      "attachments": [
+        {
+          "filename": "docket_44280_stf-tai-7-1_revised.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191879/73618",
+          "cache_name": "191879_docket_44280_stf-tai-7-1_revised.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191934,
+      "description": "DKT 44280 STF-PIA-1 Supplemental Data Request Responses",
+      "filed_date": "2022-10-27",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191934",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-1_supplemental_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191934/73670",
+          "cache_name": "191934_dkt_44280_stf-pia-1_supplemental_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 191950,
+      "description": "DKT 44280 STF-WG-7",
+      "filed_date": "2022-10-28",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=191950",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-wg-7.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/191950/73684",
+          "cache_name": "191950_dkt_44280_stf-wg-7.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 192046,
+      "description": "DKT 44280 STF-TAI-8 Data Request Responses",
+      "filed_date": "2022-11-09",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=192046",
+      "attachments": [
+        {
+          "filename": "drsum_44280_stf-tai-8_stamp.docx",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/192046/73831",
+          "cache_name": "192046_drsum_44280_stf-tai-8_stamp.docx"
+        },
+        {
+          "filename": "DKT 44280 STF-TAI-8 PD.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/192046/73842",
+          "cache_name": "192046_DKT 44280 STF-TAI-8 PD.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 192082,
+      "description": "DKT 44280 STF-TAI-9 Data Request Responses",
+      "filed_date": "2022-11-14",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=192082",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-tai-9.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/192082/73849",
+          "cache_name": "192082_dkt_44280_stf-tai-9.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 192108,
+      "description": "DKT 44280 STF-TAI-8-9 Supplemental Response",
+      "filed_date": "2022-11-15",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=192108",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-tai-8_supplemental.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/192108/73889",
+          "cache_name": "192108_dkt_44280_stf-tai-8_supplemental.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 192123,
+      "description": "DKT 44280 STF-BAI-1-7 Supplemental Data Request Response",
+      "filed_date": "2022-11-15",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=192123",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-bai-1-7_supp_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/192123/73904",
+          "cache_name": "192123_dkt_44280_stf-bai-1-7_supp_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 192999,
+      "description": "DKT 44280 STF-WG-8 Data Request Responses",
+      "filed_date": "2023-01-27",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=192999",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-wg-8_1_27_2023_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/192999/74684",
+          "cache_name": "192999_dkt_44280_stf-wg-8_1_27_2023_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 193428,
+      "description": "DKT 44280 STF-PIA-13 Data Request Responses",
+      "filed_date": "2023-02-27",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=193428",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-13_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/193428/75041",
+          "cache_name": "193428_dkt_44280_stf-pia-13_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 193827,
+      "description": "DKT 44280 STF-PIA-14 Data Request Responses",
+      "filed_date": "2023-03-30",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=193827",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-14_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/193827/75382",
+          "cache_name": "193827_dkt_44280_stf-pia-14_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 194048,
+      "description": "DKT 44280 STF-PIA-15 Data Request Response",
+      "filed_date": "2023-04-13",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=194048",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-15.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/194048/75546",
+          "cache_name": "194048_dkt_44280_stf-pia-15.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 194435,
+      "description": "DKT 44280 STF-PIA-15-1 Supplemental Data Request Response",
+      "filed_date": "2023-05-15",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=194435",
+      "attachments": [
+        {
+          "filename": "stf-pia-15-1_supp.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/194435/75845",
+          "cache_name": "194435_stf-pia-15-1_supp.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 194552,
+      "description": "DKT 44280 STF-PIA-16 Data Request Responses",
+      "filed_date": "2023-05-22",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=194552",
+      "attachments": [
+        {
+          "filename": "stf-pia-16_5.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/194552/75949",
+          "cache_name": "194552_stf-pia-16_5.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 205607,
+      "description": "DKT 44280 STF-PIA-17 Data Request Responses",
+      "filed_date": "2023-09-05",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=205607",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-17_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/205607/86954",
+          "cache_name": "205607_dkt_44280_stf-pia-17_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 205647,
+      "description": "DKT 44280 STF-PIA-18 Data Request Responses",
+      "filed_date": "2023-09-08",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=205647",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-18_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/205647/87006",
+          "cache_name": "205647_dkt_44280_stf-pia-18_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 205700,
+      "description": "DKT 44280 STF-PIA-17 Updated Data Request Responses",
+      "filed_date": "2023-09-14",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=205700",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-17_pd_updated.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/205700/87066",
+          "cache_name": "205700_dkt_44280_stf-pia-17_pd_updated.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 215831,
+      "description": "DKT 44280 STF-WG-9 Data Request Responses",
+      "filed_date": "2023-10-02",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=215831",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-wg-9_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/215831/97172",
+          "cache_name": "215831_dkt_44280_stf-wg-9_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 215851,
+      "description": "DKT 44280 STF-LA-4-4 Supplemental Data Request Response",
+      "filed_date": "2023-10-04",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=215851",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-la-4-4_supp_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/215851/97195",
+          "cache_name": "215851_dkt_44280_stf-la-4-4_supp_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216126,
+      "description": "DKT 44280 STF-PIA-19 Data Request Responses",
+      "filed_date": "2023-10-20",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216126",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-19.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216126/97366",
+          "cache_name": "216126_dkt_44280_stf-pia-19.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216238,
+      "description": "DKT 44280 STF-WG-9 Supplemental Data Request Responses",
+      "filed_date": "2023-11-03",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216238",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-wg-9_supp_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216238/97461",
+          "cache_name": "216238_dkt_44280_stf-wg-9_supp_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216351,
+      "description": "DKT 44280 STF-WG-10 PD",
+      "filed_date": "2023-11-13",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216351",
+      "attachments": [
+        {
+          "filename": "DKT 44280 STF-WG-10 PD.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216351/97550",
+          "cache_name": "216351_DKT 44280 STF-WG-10 PD.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216463,
+      "description": "DKT 44280 - STF-PIA-20 Data Request Response",
+      "filed_date": "2023-11-22",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216463",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-20_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216463/97687",
+          "cache_name": "216463_dkt_44280_stf-pia-20_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216478,
+      "description": "DKT 44280 STF-PIA-21 Data Request Responses",
+      "filed_date": "2023-11-27",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216478",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia_21_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216478/97700",
+          "cache_name": "216478_dkt_44280_stf-pia_21_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217639,
+      "description": "DKT 44280 STF-WG-11 Data Request Responses",
+      "filed_date": "2024-02-19",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217639",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-wg-11_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217639/98776",
+          "cache_name": "217639_dkt_44280_stf-wg-11_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 218279,
+      "description": "DKT 44280 STF-PIA-22 Data Request Response",
+      "filed_date": "2024-04-05",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=218279",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-22_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/218279/99336",
+          "cache_name": "218279_dkt_44280_stf-pia-22_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 218432,
+      "description": "DKT 44280 STF-ASR-1 Data Request Responses",
+      "filed_date": "2024-04-19",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=218432",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-asr-1_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/218432/99513",
+          "cache_name": "218432_dkt_44280_stf-asr-1_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 219002,
+      "description": "Response to STF-PIA-23",
+      "filed_date": "2024-06-10",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=219002",
+      "attachments": [],
+      "status": "no_attachments"
+    },
+    {
+      "document_id": 219265,
+      "description": "STF-PIA-24 Data Request Responses",
+      "filed_date": "2024-07-05",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=219265",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-24_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/219265/100312",
+          "cache_name": "219265_dkt_44280_stf-pia-24_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 219866,
+      "description": "STF-WG-12 Data Request Responses",
+      "filed_date": "2024-09-09",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=219866",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-wg-12.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/219866/101023",
+          "cache_name": "219866_dkt_44280_stf-wg-12.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 219874,
+      "description": "STF-WG-13 Data Request Responses",
+      "filed_date": "2024-09-11",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=219874",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-wg-13.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/219874/101031",
+          "cache_name": "219874_dkt_44280_stf-wg-13.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 219953,
+      "description": "STF-ASR-2 Data Request Responses",
+      "filed_date": "2024-09-16",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=219953",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-asr-2_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/219953/101081",
+          "cache_name": "219953_dkt_44280_stf-asr-2_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 220116,
+      "description": "STF-ASR-3 Data Request Responses",
+      "filed_date": "2024-10-07",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=220116",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-asr-3.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/220116/101289",
+          "cache_name": "220116_dkt_44280_stf-asr-3.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 220269,
+      "description": "STF-PIA-25 Data Request Responses PD",
+      "filed_date": "2024-10-23",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=220269",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-25_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/220269/101435",
+          "cache_name": "220269_dkt_44280_stf-pia-25_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 220298,
+      "description": "STF-ASR-4 Data Request Responses",
+      "filed_date": "2024-10-30",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=220298",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-asr-4.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/220298/101473",
+          "cache_name": "220298_dkt_44280_stf-asr-4.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 220489,
+      "description": "STF-WG-14 Data Request Responses PD",
+      "filed_date": "2024-11-21",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=220489",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-wg-14_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/220489/101673",
+          "cache_name": "220489_dkt_44280_stf-wg-14_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 221647,
+      "description": "STF-PIA-27 PD Data Request Responses",
+      "filed_date": "2025-02-28",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=221647",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-27_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/221647/102753",
+          "cache_name": "221647_dkt_44280_stf-pia-27_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 221859,
+      "description": "DKT 44280 STF-PIA-28 PD",
+      "filed_date": "2025-03-17",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=221859",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-28_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/221859/102985",
+          "cache_name": "221859_dkt_44280_stf-pia-28_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 222160,
+      "description": "STF-PIA-26-3 Supplemental & STF-PIA-26-4 Errata Data Request Responses",
+      "filed_date": "2025-04-02",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=222160",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-26_errata_supplemental.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/222160/103331",
+          "cache_name": "222160_dkt_44280_stf-pia-26_errata_supplemental.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 222342,
+      "description": "STF-ASR-5 Data PD Request Responses",
+      "filed_date": "2025-04-21",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=222342",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-asr-5_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/222342/103492",
+          "cache_name": "222342_dkt_44280_stf-asr-5_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 222788,
+      "description": "STF-PIA-29 PD Data Request Responses",
+      "filed_date": "2025-05-23",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=222788",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-29_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/222788/103987",
+          "cache_name": "222788_dkt_44280_stf-pia-29_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 222840,
+      "description": "DKT 44280 STF-ASR-6 Data Request Responses",
+      "filed_date": "2025-05-29",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=222840",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-asr-6.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/222840/104034",
+          "cache_name": "222840_dkt_44280_stf-asr-6.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 223049,
+      "description": "STF-PIA-30 PD Data Request Responses",
+      "filed_date": "2025-06-18",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=223049",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-30_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/223049/104307",
+          "cache_name": "223049_dkt_44280_stf-pia-30_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 223050,
+      "description": "Affidavit for DKT 44280 STF-PIA-30 Data Request Responses",
+      "filed_date": "2025-06-18",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=223050",
+      "attachments": [
+        {
+          "filename": "stf-pia-30-1_affidavit.pdf",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/223050/104308",
+          "cache_name": "223050_stf-pia-30-1_affidavit.pdf"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 223841,
+      "description": "DKT 44280 STF-PIA-31 Data Request Responses",
+      "filed_date": "2025-09-02",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=223841",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-31.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/223841/105146",
+          "cache_name": "223841_dkt_44280_stf-pia-31.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 223915,
+      "description": "STF-PIA-32 PD Data Request Responses",
+      "filed_date": "2025-09-10",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=223915",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-32_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/223915/105238",
+          "cache_name": "223915_dkt_44280_stf-pia-32_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 223925,
+      "description": "STF-PIA-33 PD Data Request Responses",
+      "filed_date": "2025-09-10",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=223925",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-33_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/223925/105251",
+          "cache_name": "223925_dkt_44280_stf-pia-33_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 223953,
+      "description": "DKT 44280 STF-PIA-34 Data Request Responses",
+      "filed_date": "2025-09-11",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=223953",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-34.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/223953/105265",
+          "cache_name": "223953_dkt_44280_stf-pia-34.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 224040,
+      "description": "DKT 44280 STF-PIA-7 Data Request Responses",
+      "filed_date": "2025-09-22",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=224040",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-asr-7.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/224040/105362",
+          "cache_name": "224040_dkt_44280_stf-asr-7.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 224342,
+      "description": "STF-ASR-8 Data Request Responses",
+      "filed_date": "2025-10-27",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=224342",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-asr-8.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/224342/105634",
+          "cache_name": "224342_dkt_44280_stf-asr-8.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 224526,
+      "description": "STF-PIA-35 Data Request Responses",
+      "filed_date": "2025-11-14",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=224526",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-35.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/224526/105783",
+          "cache_name": "224526_dkt_44280_stf-pia-35.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 224527,
+      "description": "STF-PIA-36 Data Request Responses",
+      "filed_date": "2025-11-14",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=224527",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-36.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/224527/105784",
+          "cache_name": "224527_dkt_44280_stf-pia-36.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 225192,
+      "description": "STF-PIA-38 Data Request Responses",
+      "filed_date": "2026-01-22",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=225192",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-38.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/225192/106479",
+          "cache_name": "225192_dkt_44280_stf-pia-38.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 225214,
+      "description": "STF-PIA-37 PD Data Request Responses",
+      "filed_date": "2026-01-26",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=225214",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-37_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/225214/106492",
+          "cache_name": "225214_dkt_44280_stf-pia-37_pd.zip"
+        },
+        {
+          "filename": "STF-PIA-37 Affidavit.pdf",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/225214/106493",
+          "cache_name": "225214_STF-PIA-37 Affidavit.pdf"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 225230,
+      "description": "DKT 44280 STF-PIA-29-16 Supplemental PD Data Request Response",
+      "filed_date": "2026-01-27",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=225230",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-29-16_supp_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/225230/106504",
+          "cache_name": "225230_dkt_44280_stf-pia-29-16_supp_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 225340,
+      "description": "DKT 44280 STF-PIA-29-16 Supplemental 2 5 2026",
+      "filed_date": "2026-02-05",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=225340",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-29-16_supp_2_5_2026.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/225340/106619",
+          "cache_name": "225340_dkt_44280_stf-pia-29-16_supp_2_5_2026.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 225514,
+      "description": "STF-PIA-39 PD Data Request Responses",
+      "filed_date": "2026-02-23",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=225514",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-39_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/225514/106800",
+          "cache_name": "225514_dkt_44280_stf-pia-39_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 225581,
+      "description": "DKT 44280 STF-SCR-1 PD Data Request Responses",
+      "filed_date": "2026-02-25",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=225581",
+      "attachments": [],
+      "status": "no_attachments"
+    },
+    {
+      "document_id": 225880,
+      "description": "DKT 44280 STF-SCR-2 Public Disclosure",
+      "filed_date": "2026-03-17",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=225880",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-scr-2_public_disclosure.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/225880/107159",
+          "cache_name": "225880_dkt_44280_stf-scr-2_public_disclosure.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 225949,
+      "description": "DKT 44280 STF-SCR-3 Data Request Responses",
+      "filed_date": "2026-03-19",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=225949",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-scr-3.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/225949/107217",
+          "cache_name": "225949_dkt_44280_stf-scr-3.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 225955,
+      "description": "STF-SCR-4 PD Data Request Responses",
+      "filed_date": "2026-03-19",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=225955",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-scr-4_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/225955/107258",
+          "cache_name": "225955_dkt_44280_stf-scr-4_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 225998,
+      "description": "DKT 44280 STF-SCR-5 PD Data Request Responses",
+      "filed_date": "2026-03-24",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=225998",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-scr-5_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/225998/107331",
+          "cache_name": "225998_dkt_44280_stf-scr-5_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 226010,
+      "description": "STF-SCR-6 Data Request Responses",
+      "filed_date": "2026-03-25",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=226010",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-scr-6.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/226010/107344",
+          "cache_name": "226010_dkt_44280_stf-scr-6.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 226079,
+      "description": "DKT 44280 STF-PIA-36-11 Supplemental",
+      "filed_date": "2026-03-31",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=226079",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-36-11_supplemental.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/226079/107414",
+          "cache_name": "226079_dkt_44280_stf-pia-36-11_supplemental.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 226210,
+      "description": "STF-PIA-40",
+      "filed_date": "2026-04-13",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=226210",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-40.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/226210/107529",
+          "cache_name": "226210_dkt_44280_stf-pia-40.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 226211,
+      "description": "STF-SCR-7 PD",
+      "filed_date": "2026-04-13",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=226211",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-scr-7_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/226211/107530",
+          "cache_name": "226211_dkt_44280_stf-scr-7_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 226365,
+      "description": "DKT 44280 STF-PIA-41 PD",
+      "filed_date": "2026-04-24",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=226365",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-41_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/226365/107642",
+          "cache_name": "226365_dkt_44280_stf-pia-41_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 226375,
+      "description": "STF-PIA-42",
+      "filed_date": "2026-04-27",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=226375",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-42.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/226375/107652",
+          "cache_name": "226375_dkt_44280_stf-pia-42.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 226454,
+      "description": "DKT 44280 STF-ASR-9 PD",
+      "filed_date": "2026-05-01",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=226454",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-asr-9_pd (1).zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/226454/107741",
+          "cache_name": "226454_dkt_44280_stf-asr-9_pd (1).zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 226476,
+      "description": "DKT 44280 STF-SCR-5-2 Supplemental PD",
+      "filed_date": "2026-05-05",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=226476",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-scr-5-2_supp_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/226476/107783",
+          "cache_name": "226476_dkt_44280_stf-scr-5-2_supp_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 227188,
+      "description": "DKT 44280 STF-ASR-10 PD Data Request Responses",
+      "filed_date": "2026-07-09",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=227188",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-asr-10_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/227188/108443",
+          "cache_name": "227188_dkt_44280_stf-asr-10_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 227430,
+      "description": "DKT 44280 STF-ASR-11 PD",
+      "filed_date": "2026-07-31",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=227430",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-asr-11_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/227430/108667",
+          "cache_name": "227430_dkt_44280_stf-asr-11_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 227433,
+      "description": "STF-ASR-12 Data Request Response",
+      "filed_date": "2026-08-03",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=227433",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-asr-12.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/227433/108673",
+          "cache_name": "227433_dkt_44280_stf-asr-12.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 227528,
+      "description": "STF-PIA-43 Data Request Responses",
+      "filed_date": "2026-08-10",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=227528",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-43.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/227528/108818",
+          "cache_name": "227528_dkt_44280_stf-pia-43.zip"
+        },
+        {
+          "filename": "STF-PIA-43 Affidavit.pdf",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/227528/108830",
+          "cache_name": "227528_STF-PIA-43 Affidavit.pdf"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 227529,
+      "description": "STF-PIA-44 PD Data Request Responses",
+      "filed_date": "2026-08-11",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=227529",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-44_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/227529/108819",
+          "cache_name": "227529_dkt_44280_stf-pia-44_pd.zip"
+        },
+        {
+          "filename": "STF-PIA-44 Affidavit.pdf",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/227529/108831",
+          "cache_name": "227529_STF-PIA-44 Affidavit.pdf"
+        },
+        {
+          "filename": "STF-PIA-44 Affidavit.pdf",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/227529/108838",
+          "cache_name": "227529_STF-PIA-44 Affidavit.pdf"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 227815,
+      "description": "STF-ASR-13 Data Request Responses",
+      "filed_date": "2026-08-19",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=227815",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-asr-13.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/227815/109087",
+          "cache_name": "227815_dkt_44280_stf-asr-13.zip"
+        },
+        {
+          "filename": "STF-ASR-13 Affidavit.pdf",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/227815/109088",
+          "cache_name": "227815_STF-ASR-13 Affidavit.pdf"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 228383,
+      "description": "DKT 44280 STF-ASR-14 Data Request Responses",
+      "filed_date": "2026-09-10",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=228383",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-asr-14_public_disclosure.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/228383/109634",
+          "cache_name": "228383_dkt_44280_stf-asr-14_public_disclosure.zip"
+        },
+        {
+          "filename": "STF-ASR-14 Affidavit.pdf",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/228383/109635",
+          "cache_name": "228383_STF-ASR-14 Affidavit.pdf"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 228970,
+      "description": "DKT 44280 STF-NU1-1",
+      "filed_date": "2026-09-29",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=228970",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-nu1-1_public_disclosure.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/228970/109890",
+          "cache_name": "228970_dkt_44280_stf-nu1-1_public_disclosure.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 228971,
+      "description": "DKT 44280 STF-NU1-2",
+      "filed_date": "2026-09-29",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=228971",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-nu1-2_public_disclosure.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/228971/109891",
+          "cache_name": "228971_dkt_44280_stf-nu1-2_public_disclosure.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 228978,
+      "description": "DKTS 44280, 56002, 56003 STF-NU1-3 Data Request Responses",
+      "filed_date": "2026-09-29",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=228978",
+      "attachments": [
+        {
+          "filename": "stf-nu1-3_public_disclosure.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/228978/109898",
+          "cache_name": "228978_stf-nu1-3_public_disclosure.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 229139,
+      "description": "DKT 44280 STF-PIA-45 PD Data Request Responses",
+      "filed_date": "2026-10-15",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=229139",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-45_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/229139/110056",
+          "cache_name": "229139_dkt_44280_stf-pia-45_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 229314,
+      "description": "DKT 44280 STF-ASR-15 Data Request Responses",
+      "filed_date": "2026-10-30",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=229314",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-asr-15_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/229314/110192",
+          "cache_name": "229314_dkt_44280_stf-asr-15_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 229317,
+      "description": "DKT 44280 STF-PIA-46 PD Data Request Responses",
+      "filed_date": "2026-11-02",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=229317",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-46_pd-3.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/229317/110193",
+          "cache_name": "229317_dkt_44280_stf-pia-46_pd-3.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 229398,
+      "description": "DKT 44280 STF-PIA-47 Data Request Responses",
+      "filed_date": "2026-11-09",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=229398",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-47_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/229398/110320",
+          "cache_name": "229398_dkt_44280_stf-pia-47_pd.zip"
+        }
+      ],
+      "status": "ok"
+    }
+  ]
+}

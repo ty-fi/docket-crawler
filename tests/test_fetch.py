@@ -13,6 +13,9 @@ def test_filing_matches():
     assert filing_matches(item("DKT 55378 - STF-JKA-1 Data Request Responses"), CFG)
     assert not filing_matches(item("Data Request from Commission Staff (STF-PIA-1)", "Staff"), CFG)
     assert not filing_matches(item("DKT 55378 2023 IRP Update Filing"), CFG)
+    assert filing_matches(item("DKT 44280 STF-NU1-2"), CFG)
+    assert filing_matches(item("STF-PCMG-1 Data Request Responses to 5, 6, 7, 8"), CFG)
+    assert not filing_matches(item("DKT 44280 TOU-ABC-1 Responses"), CFG)
 
 
 def test_iso_date():
