@@ -25,6 +25,8 @@ step through items with **↑/↓** (or **k/j**). Each request shows its questio
 response in filing order (supplementals included), with tables rendered as tables and
 PD / trade-secret status per response.
 
+- **Sort**: request order (default), *newest first* (by each request's latest filing, so new
+  supplemental responses come to the top) or *oldest first*. `?sort=newest` links open it.
 - **Search** (`/`) matches all words (or a `"quoted phrase"`) across questions, responses and
   attachment names, highlights matches, and says how many matches the other docket has.
   `?q=...` in the URL opens a search.

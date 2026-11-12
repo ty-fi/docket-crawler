@@ -21,6 +21,7 @@ const S = {
   query: '',
   terms: [],
   starredOnly: false,
+  sort: 'order',          // 'order' (staff, set, item) | 'newest' | 'oldest'
   stars: new Set(load(STORE_STARS, [])),
   selected: null,         // request key
   visible: [],            // requests currently listed, in reading order
@@ -59,6 +60,7 @@ function buildRequests(rows) {
     const first = req.responses[0];
     req.question = first.question;
     req.filed = first.filed_date;
+    req.lastFiled = req.responses.reduce((d, r) => (r.filed_date > d ? r.filed_date : d), req.filed);
     req.pd = req.responses.some(r => r.is_pd === 'yes');
     req.ts = req.responses.some(r => r.has_trade_secret === 'yes');
     req.supps = req.responses.length - 1;
@@ -116,8 +118,30 @@ function snippet(text, terms, width = 150) {
 }
 
 // ── Filtering ───────────────────────────────────────────────────────────────
+const SORTS = {
+  order: { label: 'Request order' },
+  newest: { label: 'Newest first', title: 'By most recent filing, so new supplemental responses come first' },
+  oldest: { label: 'Oldest first', title: 'By the date the request was first answered' },
+};
+
+/** The date a request is sorted and grouped by in the current sort. */
+const sortDate = r => (S.sort === 'newest' ? r.lastFiled : r.filed);
+
+function sortVisible(list) {
+  if (S.sort === 'order') return list;  // S.requests is already in request order
+  const dir = S.sort === 'newest' ? -1 : 1;
+  const order = new Map(S.dockets.map((d, i) => [d.id, i]));
+  return [...list].sort((a, b) => {
+    const da = sortDate(a), db = sortDate(b);
+    if (da !== db) return da < db ? -dir : dir;
+    // Same day: keep each filing's requests together, in item order.
+    return (order.get(a.docket) - order.get(b.docket))
+      || a.party.localeCompare(b.party) || a.set_no - b.set_no || a.item_no - b.item_no;
+  });
+}
+
 function computeVisible() {
-  return S.requests.filter(r => {
+  return sortVisible(S.requests.filter(r => {
     if (S.starredOnly) { if (!S.stars.has(r.key)) return false; }
     else {
       if (r.docket !== S.docket) return false;
@@ -125,11 +149,11 @@ function computeVisible() {
       if (S.party && S.set != null && r.set_no !== S.set) return false;
     }
     return !S.terms.length || matches(r, S.terms);
-  });
+  }));
 }
 
 function saveView() {
-  save(STORE_VIEW, { docket: S.docket, party: S.party, set: S.set, selected: S.selected });
+  save(STORE_VIEW, { docket: S.docket, party: S.party, set: S.set, selected: S.selected, sort: S.sort });
 }
 
 // ── Rendering: top bar ──────────────────────────────────────────────────────
@@ -186,16 +210,22 @@ function renderSidebar() {
 }
 
 // ── Rendering: list ─────────────────────────────────────────────────────────
+function sortControl() {
+  return `<label class="sort"><span>Sort</span><select id="sortSelect" aria-label="Sort requests">${
+    Object.entries(SORTS).map(([k, v]) => `<option value="${k}" ${k === S.sort ? 'selected' : ''} ${v.title ? `title="${esc(v.title)}"` : ''}>${v.label}</option>`).join('')
+  }</select></label>`;
+}
+
 function renderListHead() {
   const parts = [];
   if (S.starredOnly) {
     parts.push(`<div class="list-title"><h2>Starred requests</h2><span class="n">${S.visible.length}</span>
-      <span class="actions">${S.stars.size ? '<button type="button" class="link-btn" data-action="copy-stars">Copy link to this list</button>' : ''}</span></div>`);
+      <span class="actions">${S.stars.size ? '<button type="button" class="link-btn" data-action="copy-stars">Copy link</button>' : ''}${sortControl()}</span></div>`);
   } else {
     const d = docketOf(S.docket);
     const parties = partiesOf(S.docket);
     const title = S.party ? (S.set != null ? `STF-${S.party}-${S.set}` : `${d.party_label} ${S.party}`) : `All ${d.party_label.toLowerCase()}`;
-    parts.push(`<div class="list-title"><h2 class="${S.party ? 'mono' : ''}">${esc(title)}</h2><span class="n">${S.visible.length} request${S.visible.length === 1 ? '' : 's'}</span></div>`);
+    parts.push(`<div class="list-title"><h2 class="${S.party ? 'mono' : ''}">${esc(title)}</h2><span class="n">${S.visible.length} request${S.visible.length === 1 ? '' : 's'}</span><span class="actions">${sortControl()}</span></div>`);
     const partyOpts = [...parties.keys()].sort().map(p => `<option value="${esc(p)}" ${p === S.party ? 'selected' : ''}>${esc(p)}</option>`).join('');
     const setOpts = S.party ? [...parties.get(S.party).keys()].sort((a, b) => a - b)
       .map(no => `<option value="${no}" ${no === S.set ? 'selected' : ''}>Set ${no}</option>`).join('') : '';
@@ -252,20 +282,27 @@ function renderList() {
   const out = [];
   let group = null;
   for (const r of S.visible) {
-    const g = `${r.docket}|${r.party}|${r.set_no}`;
+    const byDate = S.sort !== 'order';
+    const g = `${byDate ? sortDate(r) : ''}|${r.docket}|${r.party}|${r.set_no}`;
     if (g !== group) {
       group = g;
-      const sets = partiesOf(r.docket).get(r.party);
-      const info = sets && sets.get(r.set_no);
-      out.push(`<div class="group" role="presentation">
-        ${multiDocket || S.starredOnly ? `<span class="chip chip-docket">${esc(r.docket)}</span>` : ''}
-        <span class="set">${esc(setName(r))}</span>
-        <span class="meta">${info ? `${info.n} requests · filed ${esc(fmtDate(info.filed))}` : ''}</span></div>`);
+      const docketChip = multiDocket || S.starredOnly ? `<span class="chip chip-docket">${esc(r.docket)}</span>` : '';
+      if (byDate) {
+        out.push(`<div class="group" role="presentation">
+          <span class="date-head">${esc(fmtDate(sortDate(r)))}</span>${docketChip}
+          <span class="set">${esc(setName(r))}</span></div>`);
+      } else {
+        const sets = partiesOf(r.docket).get(r.party);
+        const info = sets && sets.get(r.set_no);
+        out.push(`<div class="group" role="presentation">${docketChip}
+          <span class="set">${esc(setName(r))}</span>
+          <span class="meta">${info ? `${info.n} requests · filed ${esc(fmtDate(info.filed))}` : ''}</span></div>`);
+      }
     }
     const starred = S.stars.has(r.key);
     out.push(`<div class="req" role="option" id="req-${cssId(r.key)}" data-key="${esc(r.key)}" aria-selected="${r.key === S.selected}">
       <button type="button" class="star-btn" data-star="${esc(r.key)}" aria-pressed="${starred}" aria-label="${starred ? 'Unstar' : 'Star'} ${esc(r.doc_id)}">${ICON_STAR}</button>
-      <div class="req-top"><span class="req-id">${hl(r.doc_id)}</span>${chipsFor(r)}<span class="req-date">${esc(r.filed)}</span></div>
+      <div class="req-top"><span class="req-id">${hl(r.doc_id)}</span>${chipsFor(r)}<span class="req-date" ${r.lastFiled !== r.filed ? `title="First answered ${esc(r.filed)}; latest filing ${esc(r.lastFiled)}"` : ''}>${esc(S.sort === 'newest' ? r.lastFiled : r.filed)}</span></div>
       <div class="req-text">${rowText(r)}</div></div>`);
   }
   body.innerHTML = out.join('');
@@ -453,6 +490,7 @@ function wire() {
   });
 
   $('listHead').addEventListener('change', e => {
+    if (e.target.id === 'sortSelect') { S.sort = e.target.value in SORTS ? e.target.value : 'order'; refresh(); return; }
     if (e.target.id === 'partySelect') { S.party = e.target.value || null; S.set = null; refresh(); }
     if (e.target.id === 'setSelect') { S.set = e.target.value === '' ? null : Number(e.target.value); refresh(); }
   });
@@ -543,9 +581,13 @@ function start(data) {
   S.docket = (target && S.byKey.get(target).docket)
     || (S.dockets.some(d => d.id === view.docket) ? view.docket : S.dockets[0]?.id);
   if (!fromHash && view.docket === S.docket) { S.party = view.party ?? null; S.set = view.set ?? null; }
+  const params = new URLSearchParams(location.search);
+  const sortParam = params.get('sort');
+  if (sortParam in SORTS) S.sort = sortParam;
+  else if (view.sort in SORTS) S.sort = view.sort;
   S.selected = target;
 
-  const q = new URLSearchParams(location.search).get('q');
+  const q = params.get('q');
   if (q) { $('search').value = q; S.query = q; S.terms = parseQuery(q); }
 
   wire();
