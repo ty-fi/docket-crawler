@@ -2,7 +2,14 @@
 __pycache__/
 *.pyc
 .venv/
+.pytest_cache/
 
-# Large cached downloads — persisted via GitHub Actions cache, not git
+# Downloaded filings: persisted via the GitHub Actions cache, not git
+output/docket_*/cache/
 output/docket_*/zips/
 output/docket_*/extracted/
+*.part
+
+# Built site (deployed to GitHub Pages by the workflow)
+site/
+*.sqlite

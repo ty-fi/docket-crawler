@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Georgia PSC Docket Explorer</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.4/styles/ag-grid.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.4/styles/ag-theme-quartz.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-title">
+    <h1>Georgia PSC Docket Explorer</h1>
+    <span id="subtitle"></span>
+  </div>
+
+  <div class="search-wrap">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <input type="search" id="quickFilter" placeholder="Search questions and responses…" autocomplete="off" aria-label="Search">
+  </div>
+
+  <div class="filter-groups">
+    <div class="filter-row" id="docketFilters"></div>
+    <div class="filter-row" id="partyFilters"></div>
+  </div>
+
+  <label class="toggle"><input type="checkbox" id="latestOnly"> Latest response only</label>
+
+  <div class="header-end">
+    <div class="record-count" id="recordCount"></div>
+    <div class="downloads">
+      <a href="qa.csv" download>CSV</a>
+      <a href="qa.sqlite" download>SQLite</a>
+    </div>
+  </div>
+</header>
+
+<div class="main">
+  <div class="grid-wrap">
+    <div id="myGrid" class="ag-theme-quartz"></div>
+    <div class="footer" id="footer"></div>
+  </div>
+  <aside class="detail-panel" id="detailPanel" aria-live="polite">
+    <div class="detail-inner" id="detailInner"></div>
+  </aside>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.4/dist/ag-grid-community.min.noStyle.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

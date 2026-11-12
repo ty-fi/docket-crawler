@@ -1,59 +1,110 @@
-name: Refresh docket data
+name: Refresh docket data and deploy site
 
 on:
   schedule:
-    - cron: '0 10 * * 1'   # Every Monday at 10am UTC
-  workflow_dispatch:         # Allow manual trigger from the Actions tab
+    - cron: '0 10 * * 1'   # Every Monday at 10:00 UTC
+  workflow_dispatch:
+    inputs:
+      refresh_pages:
+        description: 'Re-read every filing page (not just new filings)'
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths:
+      - 'docket_crawler/**'
+      - 'dockets.json'
+      - 'output/**'
+      - 'requirements.txt'
+      - '.github/workflows/refresh.yml'
+
+concurrency:
+  group: refresh-and-deploy
+  cancel-in-progress: false
 
 jobs:
   refresh:
+    # Pushes only rebuild the site from the committed CSVs; crawling runs on schedule/manual.
+    if: github.event_name != 'push'
     runs-on: ubuntu-latest
     permissions:
-      contents: write        # Needed to push updated outputs back to the repo
-
+      contents: write   # commit updated CSV + manifest
+      actions: write    # keepalive: re-enable this workflow so GitHub doesn't disable it
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: pip
 
-      - name: Install dependencies
-        run: pip install python-docx
+      - run: pip install -r requirements.txt
 
-      - name: Restore ZIP cache
+      - name: Restore download cache
         uses: actions/cache@v4
         with:
-          path: output/docket_*/zips
-          # New cache entry per run; restore-keys picks up the most recent prior run
-          key: zips-v2-${{ github.run_id }}
-          restore-keys: |
-            zips-v2-
+          path: output/docket_*/cache
+          key: filings-v3-${{ github.run_id }}
+          restore-keys: filings-v3-
 
-      - name: Process all dockets
-        run: |
-          DOCKETS=$(python -c "import json; print(' '.join(d['id'] for d in json.load(open('dockets.json'))['dockets']))")
-          for did in $DOCKETS; do
-            mkdir -p output/docket_${did}/zips output/docket_${did}/extracted
-            python crawl.py --docket $did
-            python reparse.py --docket $did
-          done
+      - name: Fetch new filings
+        run: python -m docket_crawler fetch ${{ inputs.refresh_pages && '--refresh-pages' || '' }}
 
-      - name: Generate site
-        run: python generate_site.py
+      - name: Parse
+        run: python -m docket_crawler parse
 
-      - name: Commit updated outputs
+      - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add output/docket_*/qa.csv \
-                  output/docket_*/qa.sqlite \
-                  output/docket_*/manifest.json \
-                  output/index.html
-          # Only commit if something actually changed
-          git diff --staged --quiet \
-            && echo "No changes to commit." \
-            || git commit -m "chore: refresh docket data $(date -u +%Y-%m-%d)"
-          git push
+          git add output/docket_*/qa.csv output/docket_*/manifest.json
+          if git diff --staged --quiet; then
+            echo "No data changes."
+          else
+            git commit -m "chore: refresh docket data $(date -u +%Y-%m-%d)"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+
+      - name: Keepalive
+        # Scheduled workflows are disabled after 60 days without repo activity.
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow enable refresh.yml --repo "${GITHUB_REPOSITORY}"
+
+  build:
+    needs: refresh
+    if: ${{ !cancelled() && (needs.refresh.result == 'success' || needs.refresh.result == 'skipped') }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}   # pick up the commit the refresh job just pushed
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - run: python -m docket_crawler site
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -5,7 +5,8 @@
       "label": "Docket 55378",
       "subtitle": "Staff Data Requests — Georgia Power Company",
       "company_filter": "Georgia Power",
-      "doc_pattern": "STF-[A-Z]{2,4}-"
+      "request_prefix": "STF",
+      "party_label": "Staff"
     }
   ]
 }
