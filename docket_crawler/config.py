@@ -8,6 +8,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Optional
 
+from .ids import PARTY
+
 DEFAULT_CONFIG_PATH = Path("dockets.json")
 OUTPUT_DIR = Path("output")
 SITE_DIR = Path("site")
@@ -23,12 +25,12 @@ class DocketConfig:
     request_prefix: str = "STF"
     # What the 2-4 letter code after the prefix means (shown as a column header).
     party_label: str = "Staff"
-    # Regex a filing's description must match to be crawled. Defaults to "<prefix>-<CODE>-".
+    # Regex a filing's description must match to be crawled. Defaults to "<prefix>-<party code>-".
     description_pattern: Optional[str] = None
 
     @property
     def filing_regex(self) -> str:
-        return self.description_pattern or rf"{re.escape(self.request_prefix)}-[A-Z]{{2,4}}-"
+        return self.description_pattern or rf"{re.escape(self.request_prefix)}-{PARTY}-"
 
     @property
     def dir(self) -> Path:

@@ -47,6 +47,14 @@ def test_build_docket_end_to_end(tmp_path, monkeypatch):
         zf.writestr("DKT 1 STF-DEA-1 PD/STF-DEA-1-10/PD-STF-DEA-1-10 Attachment B.xlsx", b"b")
         zf.writestr("DKT 1 STF-DEA-1 PD/DEA-1-11/Workpaper.xlsx", b"c")
         zf.writestr("DKT 1 STF-DEA-1 PD/DEA-1-11/STF-DEA-1-11.docx", qa_docx("STF-DEA-1-11", "Q11", "R11"))
+        zf.writestr("DKT 1 STF-DEA-1 PD/STF-DEA-1-12.docx", qa_docx("STF-DEA-1-12", "Q12", "R12"))
+        zf.writestr("DKT 1 STF-DEA-1 PD/STF-DAE-1-12 Attachment.xlsx", b"typo")  # party-code typo
+        doc = Document()
+        for t in ["STF-DEA-1-20", "Question:", "Q20", "Response:", "Cost is REDACTED.",
+                  "STF-DEA-1-21", "Question:", "Q21", "Response:", "R21"]:
+            doc.add_paragraph(t)
+        buf = io.BytesIO(); doc.save(buf)
+        zf.writestr("DKT 1 STF-DEA-1 PD/STF-DEA-1-20 - 21.docx", buf.getvalue())
     (cfg.cache_dir / "200_STF-DEA-1-1 Supplemental.docx").write_bytes(qa_docx("STF-DEA-1-1", "Q1", "R1 updated"))
 
     manifest = {"version": 2, "docket_id": "1", "filings": [
@@ -65,7 +73,14 @@ def test_build_docket_end_to_end(tmp_path, monkeypatch):
 
     assert [(r["doc_id"], r["response_seq"]) for r in rows] == [
         ("STF-DEA-1-1", 1), ("STF-DEA-1-1", 2), ("STF-DEA-1-10", 1), ("STF-DEA-1-11", 1),
+        ("STF-DEA-1-12", 1), ("STF-DEA-1-20", 1), ("STF-DEA-1-21", 1),
     ]
+    # A combined document becomes one row per request; REDACTED text marks it PD.
+    assert (by[("STF-DEA-1-20", 1)]["response"], by[("STF-DEA-1-20", 1)]["is_pd"]) == ("Cost is REDACTED.", "yes")
+    assert (by[("STF-DEA-1-21", 1)]["response"], by[("STF-DEA-1-21", 1)]["is_pd"]) == ("R21", "no")
+    # A typo'd attachment goes to the one response with the same set and item numbers.
+    assert by[("STF-DEA-1-12", 1)]["attachments"] == "STF-DAE-1-12 Attachment.xlsx"
+    assert "attachments named STF-DAE-1-12" in by[("STF-DEA-1-12", 1)]["parse_warning"]
     # Attachments go to exactly the right request (no -1-1 / -1-10 bleed).
     assert by[("STF-DEA-1-1", 1)]["attachments"] == "PD STF-DEA-1-1 Attachment A.xlsx"
     assert by[("STF-DEA-1-10", 1)]["attachments"] == "PD-STF-DEA-1-10 Attachment B.xlsx"
@@ -96,6 +111,10 @@ def test_has_trade_secret_signals():
     assert has_trade_secret(False, [], "STF", "See TS STF-DEA-1-1 Attachment A.")       # cites TS doc
     assert has_trade_secret(False, [], "STF", "refer to TS_Zip_AllResponses.zip")
     assert not has_trade_secret(False, ["STF-DEA-1-1 Attachment.xlsx"], "STF", "Costs and benefits.")
+    assert has_trade_secret(False, ["STF-TIA-1-16 Attachments A-AP PD.docx"], "STF", "")
+    assert has_trade_secret(False, ["STF-WG-9-1 Attachment A PUBLIC DISCLOSURE.xlsx"], "STF", "")
+    assert has_trade_secret(False, ["STF-LA-1-1 Assertion Letter.docx"], "STF", "")
+    assert not has_trade_secret(False, ["STF-LA-1-1 UPDATED Attachment.xlsx"], "STF", "")
     assert not has_trade_secret(False, [], "STF", "The TSA and ts values")              # not a TS doc ref
 
 
