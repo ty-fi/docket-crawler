@@ -18,6 +18,20 @@ For each configured docket it:
 A GitHub Actions workflow runs all three every Monday, commits any changed CSV/manifest, and
 deploys the site to GitHub Pages.
 
+## The site
+
+Built for reading requests in order: pick a docket, a staff member and a request set, then
+step through items with **↑/↓** (or **k/j**). Each request shows its question once, then every
+response in filing order (supplementals included), with tables rendered as tables and
+PD / trade-secret status per response.
+
+- **Search** (`/`) matches all words (or a `"quoted phrase"`) across questions, responses and
+  attachment names, highlights matches, and says how many matches the other docket has.
+  `?q=...` in the URL opens a search.
+- **Stars** (☆ or **s**) are saved in your browser only. *Starred* lists them across dockets, and
+  *Copy link to this list* makes a link that adds them to someone else's (or your other) browser.
+- Links to a single response (`#<row_id>`) still work, as does the old `/output/index.html`.
+
 ## Usage
 
 ```sh
