@@ -72,6 +72,9 @@ def test_build_docket_end_to_end(tmp_path, monkeypatch):
     # Folder without the prefix still assigns its files.
     assert by[("STF-DEA-1-11", 1)]["attachments"] == "Workpaper.xlsx"
     assert by[("STF-DEA-1-10", 1)]["is_pd"] == "yes"
+    # Public response text, but its attachment has a PD (redacted) version.
+    assert (by[("STF-DEA-1-1", 1)]["is_pd"], by[("STF-DEA-1-1", 1)]["has_trade_secret"]) == ("no", "yes")
+    assert by[("STF-DEA-1-11", 1)]["has_trade_secret"] == "no"
     assert by[("STF-DEA-1-1", 2)]["is_supplemental"] == "yes"
     assert by[("STF-DEA-1-1", 2)]["response"] == "R1 updated"
     assert by[("STF-DEA-1-1", 2)]["source_url"] == "d200"
@@ -83,3 +86,14 @@ def test_build_docket_end_to_end(tmp_path, monkeypatch):
     back = build.read_csv(tmp_path / "qa.csv")
     assert [r["row_id"] for r in back] == [r["row_id"] for r in rows]
     assert back[1]["response"] == "R1 updated"
+
+
+def test_has_trade_secret_signals():
+    from docket_crawler.build import has_trade_secret
+    assert has_trade_secret(True, [], "STF", "", "")                                   # PD response
+    assert has_trade_secret(False, ["PD STF-DEA-1-1 Attachment A.xlsx"], "STF", "")     # PD attachment
+    assert has_trade_secret(False, ["PD-STF-DEA-1-10 Attachment B.xlsx"], "STF", "")
+    assert has_trade_secret(False, [], "STF", "See TS STF-DEA-1-1 Attachment A.")       # cites TS doc
+    assert has_trade_secret(False, [], "STF", "refer to TS_Zip_AllResponses.zip")
+    assert not has_trade_secret(False, ["STF-DEA-1-1 Attachment.xlsx"], "STF", "Costs and benefits.")
+    assert not has_trade_secret(False, [], "STF", "The TSA and ts values")              # not a TS doc ref

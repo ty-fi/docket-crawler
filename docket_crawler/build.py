@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import io
+import re
 import zipfile
 from collections import defaultdict
 from pathlib import Path, PurePosixPath
@@ -18,7 +19,7 @@ from .parse import parse_qa_docx
 
 FIELDS = [
     "row_id", "docket_id", "doc_id", "party", "set_no", "item_no",
-    "response_seq", "is_supplemental", "is_pd",
+    "response_seq", "is_supplemental", "is_pd", "has_trade_secret",
     "filed_date", "document_id", "filing_description", "filing_url",
     "source_file", "source_url", "source_member",
     "question", "response",
@@ -26,6 +27,23 @@ FIELDS = [
 ]
 
 ListSep = "; "
+
+# References to trade-secret documents in response text: "See TS STF-DEA-1-1 Attachment A",
+# "TS_Zip_AllResponses", "TS-STF-DEA-1-15 Attachment". Case-sensitive on purpose.
+_TS_REFERENCE = re.compile(r"\bTS[\s_-]+[A-Z0-9(\"“]")
+
+
+def has_trade_secret(is_pd: bool, attachments: List[str], prefix: str, *texts: str) -> bool:
+    """Whether a trade-secret version of some of this response's material was filed.
+
+    "PD" (public disclosure) marks the redacted public version of a document whose
+    trade-secret version was filed confidentially. Signals: the response document is
+    itself PD, one of its attachments is PD, or the text cites a "TS ..." document."""
+    return (
+        is_pd
+        or any(has_pd_marker(a, prefix) or a.upper().startswith(("PD ", "PD-", "PD_")) for a in attachments)
+        or any(_TS_REFERENCE.search(t or "") for t in texts)
+    )
 
 
 def _row_id(*parts: object) -> str:
@@ -96,6 +114,7 @@ def _rows_for_source(cfg: DocketConfig, filing: dict, att: dict, path: Path) -> 
             warning = "; ".join(filter(None, [warning, "empty question or response"]))
 
         related = sorted(attachments_by_id.get(str(rid), []))
+        is_pd = has_pd_marker(name, cfg.request_prefix)
         seen_ids.add(str(rid))
         rows.append({
             "row_id": _row_id(cfg.id, filing["document_id"], att["filename"], member),
@@ -104,7 +123,9 @@ def _rows_for_source(cfg: DocketConfig, filing: dict, att: dict, path: Path) -> 
             "party": rid.party,
             "set_no": rid.set_no,
             "item_no": rid.item_no,
-            "is_pd": "yes" if has_pd_marker(name, cfg.request_prefix) else "no",
+            "is_pd": "yes" if is_pd else "no",
+            "has_trade_secret": "yes" if has_trade_secret(
+                is_pd, related, cfg.request_prefix, parsed.question, parsed.response) else "no",
             "filed_date": filing["filed_date"],
             "document_id": filing["document_id"],
             "filing_description": filing["description"],

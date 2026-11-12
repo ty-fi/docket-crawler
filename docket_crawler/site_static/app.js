@@ -45,7 +45,11 @@ function badge(key, text) {
 }
 function tags(r, long) {
   const out = [];
-  if (r.is_pd === 'yes') out.push(`<span class="tag tag-pd" title="PD-marked file">${long ? 'Protective Disclosure' : 'PD'}</span>`);
+  if (r.is_pd === 'yes') {
+    out.push(`<span class="tag tag-pd" title="Public disclosure: this response text is redacted; the trade-secret version was filed confidentially">${long ? 'Public disclosure (redacted)' : 'PD'}</span>`);
+  } else if (r.has_trade_secret === 'yes') {
+    out.push(`<span class="tag tag-ts" title="Some material for this response (e.g. an attachment) was filed as trade secret and is not public">${long ? 'Trade-secret material withheld' : 'TS'}</span>`);
+  }
   if (r.is_supplemental === 'yes') out.push(`<span class="tag tag-supp" title="Response #${r.response_seq} to this request">${long ? 'Supplemental #' : 'S'}${r.response_seq}</span>`);
   return out.join('');
 }

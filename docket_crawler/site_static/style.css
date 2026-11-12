@@ -153,6 +153,7 @@ header {
   font-size: 10px; font-weight: 700; letter-spacing: .4px; border: 1px solid;
 }
 .tag-pd   { color: #92400e; background: #fef3c7; border-color: #fcd34d; }
+.tag-ts   { color: #6b21a8; background: #f3e8ff; border-color: #d8b4fe; }
 .tag-supp { color: #075985; background: #e0f2fe; border-color: #7dd3fc; }
 .tags { display: flex; gap: 4px; flex-wrap: wrap; }
 

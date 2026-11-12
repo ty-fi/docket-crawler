@@ -72,7 +72,8 @@ and check the parse notes printed at the end for files it could not handle.
 | `row_id` | stable ID (hash of docket, filing, file and path in the archive) |
 | `doc_id`, `party`, `set_no`, `item_no` | request ID, e.g. `STF-JKA-1-4` → `JKA`, 1, 4 |
 | `response_seq`, `is_supplemental` | 1 for the first response to a request, 2+ for later (supplemental) ones, by filing date |
-| `is_pd` | `yes` when the response file name starts with `PD` |
+| `is_pd` | `yes` when the response document is a **public disclosure (PD)** version: its text is redacted, and a trade-secret version was filed confidentially (file name starts with `PD`) |
+| `has_trade_secret` | `yes` when any of this response's material has a non-public trade-secret version: the response is PD, an attachment is PD, or the text cites a `TS …` document |
 | `filed_date` | ISO date of the filing |
 | `document_id`, `filing_description`, `filing_url` | the PSC filing |
 | `source_file`, `source_url`, `source_member` | downloaded file, its download link, and the path inside the ZIP |

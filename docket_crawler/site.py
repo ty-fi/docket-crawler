@@ -19,7 +19,7 @@ INT_FIELDS = {"set_no", "item_no", "response_seq", "document_id"}
 # Fields the browser needs. Everything else stays in the CSV/SQLite downloads.
 SITE_FIELDS = [
     "row_id", "docket_id", "doc_id", "party", "set_no", "item_no",
-    "response_seq", "is_supplemental", "is_pd", "filed_date",
+    "response_seq", "is_supplemental", "is_pd", "has_trade_secret", "filed_date",
     "document_id", "filing_description", "filing_url", "source_file", "source_url",
     "question", "response", "attachments", "confidential_files",
 ]
