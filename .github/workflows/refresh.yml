@@ -109,6 +109,9 @@ jobs:
 
   deploy:
     needs: build
+    # Explicit condition: without it, a skipped refresh job (push runs) makes GitHub
+    # skip this job too, even though the build succeeded.
+    if: ${{ !cancelled() && needs.build.result == 'success' }}
     runs-on: ubuntu-latest
     permissions:
       pages: write
