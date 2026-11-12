@@ -1,927 +1,711 @@
-[
-  {
-    "doc_id_api": 216531,
-    "description": "DKT 55378 - STF-JKA-1 Data Request Responses",
-    "filed_date": "11/30/2023",
-    "zip_filename": "dkt_55378_stf-jka-1_pd.zip",
-    "qa_count": 5,
-    "confidentiality_count": 0,
-    "other_files": [
-      "JKA-1-4",
-      "PD STF-JKA-1-4 Attachment.docx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 216538,
-    "description": "DKT 55378 - STF-PIA-1 Data Request Responses",
-    "filed_date": "12/1/2023",
-    "zip_filename": "dkt_55378_stf-pia-1.zip",
-    "qa_count": 1,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-PIA-1-1 Attachment A.xlsx",
-      "STF-PIA-1-1 Attachment B.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 216540,
-    "description": "DKT 55378 - STF-PIA-2 Data Request Responses",
-    "filed_date": "12/1/2023",
-    "zip_filename": "dkt_55378_stf-pia-2_pd.zip",
-    "qa_count": 4,
-    "confidentiality_count": 0,
-    "other_files": [
-      "PIA-2-2",
-      "STF-PIA-2-2 Attachment.xlsx",
-      "PIA-2-3",
-      "PD STF-PIA-2-3 Attachment.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 216644,
-    "description": "DKT 55378 STF-PIA-3 Data Request Responses",
-    "filed_date": "12/6/2023",
-    "zip_filename": "dkt_55378_stf-pia-3_pd.zip",
-    "qa_count": 7,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-PIA-3-5",
-      "PD STF-PIA-3-5 Attachment.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 216656,
-    "description": "DKT 55378 STF-DEA-1 Data Request Responses",
-    "filed_date": "12/7/2023",
-    "zip_filename": "dkt_55378_stf-dea-1_pd.zip",
-    "qa_count": 20,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-DEA-1-1",
-      "PD STF-DEA-1-1 Attachment A.xlsx",
-      "PD STF-DEA-1-1 Attachment B.xlsx",
-      "STF-DEA-1-10",
-      "PD STF-DEA-1-10 Attachment A.xlsx",
-      "PD-STF-DEA-1-10 Attachment B.xlsx",
-      "STF-DEA-1-11",
-      "STF-DEA-1-13",
-      "PD STF-DEA-1-13 Attachment.xlsx",
-      "STF-DEA-1-15",
-      "PD STF-DEA-1-15 Attachment.xlsx",
-      "STF-DEA-1-16",
-      "STF-DEA-1-2",
-      "PD STF-DEA-1-2 Attachments A-O and PRICEM models.docx",
-      "STF-DEA-1-20",
-      "STF-DEA-1-20 Attachment.docx",
-      "STF-DEA-1-4",
-      "PD STF-DEA-1-4 Attachments A-D.docx",
-      "STF-DEA-1-5",
-      "PD STF-DEA-1-5 Attachment A.xlsx",
-      "STF-DEA-1-5 Attachment B.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 216666,
-    "description": "STF-JKA-2 Data Request Responses Filing",
-    "filed_date": "12/7/2023",
-    "zip_filename": "DKT 55378 STF-JKA-2 PD (3).zip",
-    "qa_count": 31,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-JKA-2-9",
-      "PD STF-JKA-2-9 Attachment A.xlsx",
-      "PD STF-JKA-2-9 Attachment C.xlsx",
-      "PD STF-JKA-2-9 Attachment F.xlsx",
-      "PD STF-JKA-2-9 Attachment B.xlsx",
-      "PD STF-JKA-2-9 Attachment D.xlsx",
-      "PD STF-JKA-2-9 Attachment E.xlsx",
-      "STF-JKA-2-7",
-      "PD STF-JKA-2-7 Attachment.docx",
-      "STF-JKA-2-6",
-      "PD STF-JKA-2-6 Attachment A.xlsx",
-      "PD STF-JKA-2-6 Attachment B.xlsx",
-      "STF-JKA-2-5",
-      "STF-JKA-2-28",
-      "PD STF-JKA-2-28 Attachment.docx",
-      "STF-JKA-2-26",
-      "STF-JKA-2-25",
-      "STF-JKA-2-24",
-      "PD STF-JKA-2-24 Attachments A, B, C.docx",
-      "STF-JKA-2-23",
-      "STF-JKA-2-22",
-      "STF-JKA-2-20",
-      "STF-JKA-2-20 Attachment.pdf",
-      "STF-JKA-2-2",
-      "STF-JKA-2-2 Attachment C.xlsx",
-      "STF-JKA-2-2 Attachment A.xlsx",
-      "STF-JKA-2-2 Attachment B.xlsx",
-      "STF-JKA-2-2 Attachment D.xlsx",
-      "STF-JKA-2-19",
-      "PD STF-JKA-2-19 Attachment G.pdf",
-      "PD STF-JKA-2-19 Attachment I.pdf",
-      "PD STF-JKA-2-19 Attachment H.pdf",
-      "PD STF-JKA-2-19 Attachment L.pdf",
-      "PD STF-JKA-2-19 Attachment A.pdf",
-      "PD STF-JKA-2-19 Attachment K.pdf",
-      "PD STF-JKA-2-19 Attachment O.pdf",
-      "PD STF-JKA-2-19 Attachment J.pdf",
-      "PD STF-JKA-2-19 Attachment N.pdf",
-      "PD STF-JKA-2-19 Attachment F.pdf",
-      "PD STF-JKA-2-19 Attachment M.pdf",
-      "PD STF-JKA-2-19 Attachment D.docx",
-      "PD STF-JKA-2-19 Attachment C.docx",
-      "PD STF-JKA-2-19 Attachment E.docx",
-      "PD STF-JKA-2-19 Attachment B.docx",
-      "STF-JKA-2-16",
-      "PD STF-JKA-2-16 Attachment.docx",
-      "STF-JKA-2-14",
-      "STF-JKA-2-14 Attachment B.pdf",
-      "STF-JKA-2-14 Attachment C.pdf",
-      "PD STF-JKA-2-14 Attachment D.docx",
-      "PD STF-JKA-2-14 Attachment A.docx",
-      "STF-JKA-2-12",
-      "PD STF-JKA-2-12 Attachment A.xlsx",
-      "PD STF-JKA-2-12 Attachment B.xlsx",
-      "STF-JKA-2-12 Attachment I.pdf",
-      "PD STF-JKA-2-12 Attachment C.xlsx",
-      "PD STF-JKA-2-12 Attachment E.xlsx",
-      "PD STF-JKA-2-12 Attachment D.xlsx",
-      "PD STF-JKA-2-12 Attachment H.xlsx",
-      "PD STF-JKA-2-12 Attachment F G J K L and M.docx",
-      "STF-JKA-2-11",
-      "STF-JKA-2-11 Attachment F.xlsx",
-      "PD STF-JKA-2-11 Attachments A-E and G-R.docx",
-      "STF-JKA-2-10",
-      "STF-JKA-2-10 Attachment D.xlsx",
-      "PD STF-JKA-2-10 Attachment B.xlsx",
-      "PD STF-JKA-2-10 Attachments A & C.docx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 216697,
-    "description": "DKT 55378 STF-PIA-4 Data Request Responses",
-    "filed_date": "12/11/2023",
-    "zip_filename": "dkt_55378_stf-pia-4_pd.zip",
-    "qa_count": 16,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-PIA-4-1",
-      "PD STF-PIA-4-1 Attachment A.xlsx",
-      "PD STF-PIA-4-1 Attachment F, G.docx",
-      "PD STF-PIA-4-1 Attachment H.docx",
-      "STF-PIA-4-1 Attachment B.pdf",
-      "STF-PIA-4-1 Attachment C.docx",
-      "STF-PIA-4-1 Attachment D.pptx",
-      "STF-PIA-4-1 Attachment E.pptx",
-      "STF-PIA-4-13",
-      "STF-PIA-4-13 Attachment.xlsx",
-      "STF-PIA-4-15",
-      "PD STF-PIA-4-15 Attachment A-H.docx",
-      "STF-PIA-4-3",
-      "STF-PIA-4-3 Attachment.xlsx",
-      "STF-PIA-4-9"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 216721,
-    "description": "DKT 55378 STF-PIA-5 Data Request Responses",
-    "filed_date": "12/13/2023",
-    "zip_filename": "dkt_55378_stf-pia-5_pd.zip",
-    "qa_count": 10,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-PIA-5-5",
-      "STF-PIA-5-5 Attachment A.pdf",
-      "STF-PIA-5-5 Attachment B.pdf",
-      "STF-PIA-5-5 Attachment C.pdf",
-      "STF-PIA-5-5 Attachment D.docx",
-      "STF-PIA-5-5 Attachment E.pdf",
-      "STF-PIA-5-5 Attachment F.pdf",
-      "STF-PIA-5-5 Attachment G.pdf",
-      "STF-PIA-5-5 Attachment H.xlsx",
-      "STF-PIA-5-5 Attachment I.xlsx",
-      "STF-PIA-5-5 Attachment J.xlsx",
-      "STF-PIA-5-5 Attachment K.xlsx",
-      "STF-PIA-5-5 Attachment L.xlsx",
-      "STF-PIA-5-5 Attachment M.xlsx",
-      "STF-PIA-5-5 Attachment N.xlsx",
-      "STF-PIA-5-5 Attachment O.xlsx",
-      "STF-PIA-5-5 Attachment P.pdf",
-      "STF-PIA-5-5 Attachment Q.pdf",
-      "STF-PIA-5-5 Attachment R.pdf",
-      "STF-PIA-5-5 Attachment S.pdf",
-      "STF-PIA-5-5 Attachment T.pdf",
-      "STF-PIA-5-6",
-      "PD STF-PIA-5-6 Attachments A-K.docx",
-      "STF-PIA-5-8",
-      "PD STF-PIA-5-8 Attachments A-AC.docx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 216737,
-    "description": "DKT 55378 STF-PIA-6 Data Request Responses",
-    "filed_date": "12/14/2023",
-    "zip_filename": "dkt_55378_stf-pia-6_pd.zip",
-    "qa_count": 16,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-PIA-6-1",
-      "PD STF-PIA-6-1 Attachment.xlsx",
-      "STF-PIA-6-10",
-      "PD STF-PIA-6-10 Attachment.docx",
-      "STF-PIA-6-11",
-      "STF-PIA-6-12",
-      "STF-PIA-6-13",
-      "PD STF-PIA-6-13 Attachment.xlsx",
-      "STF-PIA-6-14",
-      "STF-PIA-6-14 Attachment.xlsx",
-      "STF-PIA-6-15",
-      "STF-PIA-6-15 Attachment A.xlsx",
-      "STF-PIA-6-15 Attachment B.xlsx",
-      "STF-PIA-6-15 Attachment C.xlsx",
-      "STF-PIA-6-2",
-      "PD STF-PIA-6-2 Attachment A.xlsx",
-      "PD STF-PIA-6-2 Attachment B.xlsx",
-      "STF-PIA-6-6",
-      "PD STF-PIA-6-6 Attachment.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 216789,
-    "description": "DKT 55378 STF-DEA-2 Data Request Responses",
-    "filed_date": "12/18/2023",
-    "zip_filename": "dkt_55378_stf-dea-2_pd.zip",
-    "qa_count": 9,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-DEA-2-2",
-      "PD STF-DEA-2-2 Attachment A.xlsx",
-      "STF-DEA-2-2 Attachment B.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 216833,
-    "description": "DKT 55378 STF-JKA-3 Data Request Responses",
-    "filed_date": "12/20/2023",
-    "zip_filename": "dkt_55378_stf-jka-3_pd.zip",
-    "qa_count": 16,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-JKA-3-10",
-      "PD STF-JKA-3-10 Attachment.xlsx",
-      "STF-JKA-3-11",
-      "PD STF-JKA-3-11 Attachment.xlsx",
-      "STF-JKA-3-2",
-      "PD STF-JKA-3-2 Attachment.xlsx",
-      "STF-JKA-3-4",
-      "PD STF-JKA-3-4 Attachment.xlsx",
-      "STF-JKA-3-6",
-      "PD STF-JKA-3-6 Attachment.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 216861,
-    "description": "DKT 55378 STF-DEA-3 Data Request Responses",
-    "filed_date": "12/21/2023",
-    "zip_filename": "dkt_55378_stf-dea-3_pd.zip",
-    "qa_count": 20,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-DEA-3-12",
-      "STF-DEA-3-12 Attachment A.xlsx",
-      "STF-DEA-3-12 Attachment B.xlsx",
-      "STF-DEA-3-13",
-      "STF-DEA-3-13 Attachment.docx",
-      "STF-DEA-3-16",
-      "PD STF-DEA-3-16 Attachment.xlsx",
-      "STF-DEA-3-18",
-      "PD STF-DEA-3-18 Attachment.xlsx",
-      "STF-DEA-3-19",
-      "PD STF-DEA-3-19 Attachment.xlsx",
-      "STF-DEA-3-20",
-      "PD STF-DEA-3-20 Attachment.xlsx",
-      "STF-DEA-3-4",
-      "STF-DEA-3-4 Attachment.xlsx",
-      "STF-DEA-3-6",
-      "PD STF-DEA-3-6 Attachment A.xlsx",
-      "PD STF-DEA-3-6 Attachment H.xlsx",
-      "PD STF-DEA-3-6 Attachment I.xlsx",
-      "PD STF-DEA-3-6 Attachments B-G.docx",
-      "STF-DEA-3-7",
-      "STF-DEA-3-7 Attachment.pdf",
-      "STF-DEA-3-9",
-      "PD STF-DEA-3-9 Attachments A-E.docx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 216945,
-    "description": "DKT 55378 STF-DEA-4 Data Request Responses",
-    "filed_date": "1/4/2024",
-    "zip_filename": "dkt_55378_stf-dea-4_pd.zip",
-    "qa_count": 16,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-DEA-4-1",
-      "PD STF-DEA-4-1 Attachment.docx",
-      "STF-DEA-4-7",
-      "PD STF-DEA-4-7 Attachments A-N.docx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 216981,
-    "description": "DKT 55378 STF-PIA-7 Data Request Responses",
-    "filed_date": "1/8/2024",
-    "zip_filename": "dkt_55378_stf-pia-7_pd.zip",
-    "qa_count": 22,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-PIA-7-10",
-      "PD STF-PIA-7-10 Attachment A.xlsx",
-      "PD STF-PIA-7-10 Attachment B.docx",
-      "STF-PIA-7-11",
-      "PD STF-PIA-7-11 Attachments A-P.docx",
-      "STF-PIA-7-15",
-      "PD STF-PIA-7-15 Attachments A-P.docx",
-      "STF-PIA-7-20",
-      "PD STF-PIA-7-20 Attachment Z.docx",
-      "PD STF-PIA-7-20 Attachments A-Y.docx",
-      "STF-PIA-7-9",
-      "STF-PIA-7-9 Attachment.pdf"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 216985,
-    "description": "DKT 55378 STF-PIA-8 Data Request Responses",
-    "filed_date": "1/8/2024",
-    "zip_filename": "dkt_55378_stf-pia-8.zip",
-    "qa_count": 8,
-    "confidentiality_count": 0,
-    "other_files": [],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 216986,
-    "description": "DKT 55378 STF-LA-1 Data Request Responses",
-    "filed_date": "1/8/2024",
-    "zip_filename": "dkt_55378_stf-la-1_pd.zip",
-    "qa_count": 23,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-LA-1-15",
-      "PD STF-LA-1-15 Attachments A-P and PRICEM models.docx",
-      "STF-LA-1-2",
-      "STF-LA-1-4",
-      "STF-LA-1-4 Attachment.pdf",
-      "Thumbs.db",
-      "STF-LA-1-9"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217006,
-    "description": "DKT 55378 STF-DEA-5 Data Request Responses",
-    "filed_date": "1/10/2024",
-    "zip_filename": "dkt_55378_stf-dea-5_pd.zip",
-    "qa_count": 9,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-DEA-5-1",
-      "PD STF-DEA-5-1 Attachment.xlsx",
-      "STF-DEA-5-4",
-      "STF-DEA-5-4 Attachment.xlsx",
-      "STF-DEA-5-8",
-      "PD STF-DEA-5-8 Attachment.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217009,
-    "description": "DKT 55378 STF-JKA-4 Data Request Responses",
-    "filed_date": "1/10/2024",
-    "zip_filename": "dkt_55378_stf-jka-4_pd.zip",
-    "qa_count": 30,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-JKA-4-1",
-      "PD STF-JKA-4-1 Attachment.xlsx",
-      "STF-JKA-4-11",
-      "STF-JKA-4-11 Attachment.xlsx",
-      "STF-JKA-4-13",
-      "PD STF-JKA-4-13 Attachments A-C.docx",
-      "STF-JKA-4-19",
-      "PD STF-JKA-4-19 Attachment.docx",
-      "STF-JKA-4-20",
-      "STF-JKA-4-20 Attachment A.xlsx",
-      "STF-JKA-4-20 Attachment B.xlsx",
-      "STF-JKA-4-20 Attachment C.xlsx",
-      "STF-JKA-4-21",
-      "PD STF-JKA-4-21 Attachments A-B.docx",
-      "STF-JKA-4-24",
-      "STF-JKA-4-24 Attachment.xlsx",
-      "STF-JKA-4-28",
-      "PD STF-JKA-4-28 Attachment.xlsx",
-      "STF-JKA-4-29",
-      "PD STF-JKA-4-29 Attachment A.xlsx",
-      "PD STF-JKA-4-29 Attachment B.docx",
-      "STF-JKA-4-7",
-      "PD STF-JKA-4-7 Attachments A-B.docx",
-      "STF-JKA-4-9",
-      "PD STF-JKA-4-9 Attachment.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217020,
-    "description": "DKT 55378 STF-GS-1 Data Request Responses",
-    "filed_date": "1/11/2024",
-    "zip_filename": "dkt_55378_stf-gs-1.zip",
-    "qa_count": 9,
-    "confidentiality_count": 0,
-    "other_files": [],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217029,
-    "description": "DKT 55378 STF-JKA-5 Data Request Responses",
-    "filed_date": "1/11/2024",
-    "zip_filename": "dkt_55378_stf-jka-5_pd.zip",
-    "qa_count": 12,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-JKA-5-1",
-      "PD STF-JKA-5-1 Attachment.docx",
-      "STF-JKA-5-2",
-      "PD STF-JKA-5-2 Attachment.docx",
-      "STF-JKA-5-7",
-      "STF-JKA-5-7 Attachment.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217043,
-    "description": "DKT 55378 STF-LA-2 Data Request Responses",
-    "filed_date": "1/12/2024",
-    "zip_filename": "dkt_55378_stf-la-2.zip",
-    "qa_count": 4,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-LA-2-1",
-      "STF-LA-2-1 Attachment.xlsx",
-      "STF-LA-2-2",
-      "STF-LA-2-2 Attachment.xlsx",
-      "STF-LA-2-4",
-      "STF-LA-2-4 Attachment.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217054,
-    "description": "DKT 55378 Supplemental Data Request Responses for STF-JKA-2-2, STF-JKA-2-19, STF-JKA-2-22",
-    "filed_date": "1/12/2024",
-    "zip_filename": "dkt_55378_stf-jka-2_supplemental_pd.zip",
-    "qa_count": 3,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-JKA-2-19 Supplemental PD",
-      "PD STF-JKA-2-19 Supplemental Attachment P.docx",
-      "STF-JKA-2-2 Supplemental",
-      "STF-JKA-2-2 Supplemental Attachment B.xlsx",
-      "STF-JKA-2-22 Supplemental"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217055,
-    "description": "DKT 55378 Supplemental Data Request Response STF-DEA-3-6",
-    "filed_date": "1/12/2024",
-    "zip_filename": "dkt_55378_stf-dea-3-6_supplemental_pd.zip",
-    "qa_count": 1,
-    "confidentiality_count": 0,
-    "other_files": [
-      "PD STF-DEA-3-6 Supplemental Attachment A.xlsx",
-      "PD STF-DEA-3-6 Supplemental Attachment G.docx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217091,
-    "description": "DKT 55378 STF-DEA-6 Data Request Responses",
-    "filed_date": "1/17/2024",
-    "zip_filename": "dkt_55378_stf-dea-6_pd.zip",
-    "qa_count": 4,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-DEA-6-3",
-      "PD STF-DEA-6-3 Attachment.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217124,
-    "description": "DKT 55378 STF-PIA-3-5 Supplemental Data Request Response",
-    "filed_date": "1/19/2024",
-    "zip_filename": "dkt_55378_stf-pia-3-5_supp_pd.zip",
-    "qa_count": 1,
-    "confidentiality_count": 0,
-    "other_files": [
-      "PD STF-PIA-3-5 Supplemental Attachment.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217135,
-    "description": "DKT 55378 STF-DEA-7 Data Request Responses",
-    "filed_date": "1/22/2024",
-    "zip_filename": "dkt_55378_stf-dea-7_pd.zip",
-    "qa_count": 1,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-DEA-7-1",
-      "PD STF-DEA-7-1 Attachment.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217137,
-    "description": "DKT 55378 STF-PIA-9 Data Request Responses",
-    "filed_date": "1/22/2024",
-    "zip_filename": "dkt_55378_stf-pia-9_pd.zip",
-    "qa_count": 14,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-PIA-9-13",
-      "PD STF-PIA-9-13 Attachments A and B.docx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217222,
-    "description": "DKT 55378 STF-DEA-8 Data Request Responses",
-    "filed_date": "1/26/2024",
-    "zip_filename": "dkt_55378_stf-dea-8_pd.zip",
-    "qa_count": 12,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-DEA-8-10",
-      "STF-DEA-8-12",
-      "PD STF-DEA-8-12 Attachments A-E.docx",
-      "STF-DEA-8-2"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217231,
-    "description": "DKT 55378 STF-JKA-6 Data Request Responses",
-    "filed_date": "1/26/2024",
-    "zip_filename": "dkt_55378_stf-jka-6_pd.zip",
-    "qa_count": 9,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-JKA-6-1",
-      "PD STF-JKA-6-1 Attachment B.xlsx",
-      "STF-JKA-6-1 Attachment A.xlsx",
-      "STF-JKA-6-3",
-      "STF-JKA-6-5",
-      "STF-JKA-6-6",
-      "STF-JKA-6-7"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217239,
-    "description": "DKT 55378 STF-DEA-9 Data Request Responses",
-    "filed_date": "1/29/2024",
-    "zip_filename": "dkt_55378_stf-dea-9_pd.zip",
-    "qa_count": 9,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-DEA-9-9",
-      "PD STF-DEA-9-9 Attachment.docx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217240,
-    "description": "DKT 55378 STF-PIA-10 Data Request Responses",
-    "filed_date": "1/29/2024",
-    "zip_filename": "dkt_55378_stf-pia-10_pd.zip",
-    "qa_count": 9,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-PIA-10-6",
-      "STF-PIA-10-6 Attachment.pdf",
-      "STF-PIA-10-9",
-      "STF-PIA-10-9 Attachment.pdf"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217322,
-    "description": "DKT 55378 STF-DEA-8 Supplemental Data Request Responses",
-    "filed_date": "2/5/2024",
-    "zip_filename": "dkt_55378_stf-dea-8_supp.zip",
-    "qa_count": 2,
-    "confidentiality_count": 0,
-    "other_files": [],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217329,
-    "description": "DKT 55378 STF-JKA-7 Data Request Responses",
-    "filed_date": "2/5/2024",
-    "zip_filename": "dkt_55378_stf-jka-7.zip",
-    "qa_count": 5,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-JKA-7-3",
-      "STF-JKA-7-3 Attachment.xlsx",
-      "STF-JKA-7-4",
-      "STF-JKA-7-4 Attachment.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217378,
-    "description": "DIT 55378 STF-GS-2 Data Request Responses",
-    "filed_date": "2/8/2024",
-    "zip_filename": "dkt_55378_stf-gs-2_pd.zip",
-    "qa_count": 9,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-GS-2-4",
-      "PD STF-GS-2-4 Attachment.xlsx",
-      "STF-GS-2-7",
-      "STF-GS-2-7 Attachment.xlsx",
-      "STF-GS-2-8",
-      "STF-GS-2-8 Attachment.xlsx",
-      "STF-GS-2-9",
-      "STF-GS-2-9 Attachment.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217426,
-    "description": "DKT 55378 STF-DEA-3-6 Supplemental Data Request Response",
-    "filed_date": "2/9/2024",
-    "zip_filename": "dkt_55378_stf-dea-3-6_supp_2-9-24_pd.zip",
-    "qa_count": 1,
-    "confidentiality_count": 0,
-    "other_files": [
-      "PD STF-DEA-3-6 Supplemental 2-9-24 Attachment A.xlsx",
-      "PD STF-DEA-3-6 Supplemental 2-9-24 Attachment I.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217487,
-    "description": "DKT 55378 STF-LA-1-23 Supplemental Data Request Response",
-    "filed_date": "2/14/2024",
-    "zip_filename": "dkt_55378_stf-la-1-23_supp_pd.zip",
-    "qa_count": 1,
-    "confidentiality_count": 0,
-    "other_files": [],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217562,
-    "description": "DKT 55378 STF-PIA-9-13 Supplemental Data Request Response",
-    "filed_date": "2/15/2024",
-    "zip_filename": "dkt_55378_stf-pia-9-13_supp_pd.zip",
-    "qa_count": 1,
-    "confidentiality_count": 0,
-    "other_files": [
-      "PD STF-PIA-9-13 Supplemental Attachment A.pdf",
-      "PD STF-PIA-9-13 Supplemental Attachment B.pdf"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217638,
-    "description": "DKT 55378 STF-PIA-11 Data Request Responses",
-    "filed_date": "2/19/2024",
-    "zip_filename": "dkt_55378_stf-pia-11_pd.zip",
-    "qa_count": 4,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-PIA-11-2",
-      "STF-PIA-11-3"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217666,
-    "description": "DKT 55378 STF-PIA-12 Data Request Responses",
-    "filed_date": "2/22/2024",
-    "zip_filename": "dkt_55378_stf-pia-12_pd.zip",
-    "qa_count": 2,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-PIA-12-1",
-      "PD STF-PIA-12-1 Attachment.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217672,
-    "description": "DKT 55378 STF-JKA-8 PD",
-    "filed_date": "2/22/2024",
-    "zip_filename": "DKT 55378 STF-JKA-8 PD.zip",
-    "qa_count": 21,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-JKA-8-10",
-      "STF-JKA-8-19",
-      "STF-JKA-8-4",
-      "PD STF-JKA-8-4 Attachment.xlsx",
-      "STF-JKA-8-7",
-      "STF-JKA-8-6",
-      "STF-JKA-8-14",
-      "STF-JKA-8-5",
-      "PD STF-JKA-8-5 Attachment A.xlsx",
-      "PD STF-JKA-8-5 Attachment B.xlsx",
-      "STF-JKA-8-20",
-      "PD STF-JKA-8-20 Attachment A.xlsx",
-      "PD STF-JKA-8-20 Attachment F.xlsx",
-      "PD STF-JKA-8-20 Attachment C.xlsx",
-      "PD STF-JKA-8-20 Attachment E.xlsx",
-      "PD STF-JKA-8-20 Attachment D.xlsx",
-      "PD STF-JKA-8-20 Attachment B.docx",
-      "STF-JKA-8-13",
-      "STF-JKA-8-1",
-      "STF-JKA-8-18",
-      "STF-JKA-8-8"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 217720,
-    "description": "DKT 55378 STF-PIA-13 Data Request Responses",
-    "filed_date": "2/26/2024",
-    "zip_filename": "dkt_55378_stf-pia-13_pd.zip",
-    "qa_count": 17,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-PIA-13-11",
-      "STF-PIA-13-14",
-      "STF-PIA-13-14 Attachment.xlsx",
-      "STF-PIA-13-17",
-      "STF-PIA-13-17 Attachment A.pptx",
-      "STF-PIA-13-17 Attachment B.xlsx",
-      "STF-PIA-13-17 Attachment C.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 219091,
-    "description": "DKT 55378 STF-PIA-14 Data Request Responses",
-    "filed_date": "6/17/2024",
-    "zip_filename": "dkt_55378_stf-pia-14_pd.zip",
-    "qa_count": 8,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-PIA-14-1",
-      "PD STF-PIA-14-1 Attachments A-H.docx",
-      "STF-PIA-14-5",
-      "PD STF-PIA-14-5 Attachment.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 219905,
-    "description": "STF-PIA-15 Data Request Responses",
-    "filed_date": "9/13/2024",
-    "zip_filename": "dkt_55378_stf-pia-15_pd.zip",
-    "qa_count": 16,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-PIA-15-10",
-      "STF-PIA-15-11",
-      "STF-PIA-15-16",
-      "PD STF-PIA-15-16 Attachment.xlsx",
-      "STF-PIA-15-3",
-      "PD STF-PIA-15-3 Attachments A-D.docx",
-      "STF-PIA-15-4",
-      "PD STF-PIA-15-4 Attachments A-D.docx",
-      "STF-PIA-15-9",
-      "PD STF-PIA-15-9 Attachment.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 219952,
-    "description": "STF-DEA-10 Data Request Responses",
-    "filed_date": "9/16/2024",
-    "zip_filename": "dkt_55378_stf-dea-10_pd.zip",
-    "qa_count": 7,
-    "confidentiality_count": 0,
-    "other_files": [
-      "STF-DEA-10-1",
-      "STF-DEA-10-3",
-      "STF-DEA-10-4",
-      "STF-DEA-10-5",
-      "STF-DEA-10-6",
-      "STF-DEA-10-7"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 220094,
-    "description": "STF-PIA-16 Data Request Responses",
-    "filed_date": "10/4/2024",
-    "zip_filename": "dkt_55378_stf-pia-16_pd.zip",
-    "qa_count": 5,
-    "confidentiality_count": 0,
-    "other_files": [
-      "DKT 55378 STF-PIA-16 PD",
-      "STF-PIA-16-1",
-      "Open Notebook.onetoc2",
-      "PD STF-PIA-16-1 Attachments A-E.docx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 220126,
-    "description": "DKT 55378 STF-PIA-18 Data Request Responses",
-    "filed_date": "10/10/2024",
-    "zip_filename": "dkt_55378_stf-pia-18_pd.zip",
-    "qa_count": 18,
-    "confidentiality_count": 0,
-    "other_files": [
-      "DKT 55378 STF-PIA-18 PD",
-      "STF-PIA-18-1",
-      "STF-PIA-18-10",
-      "STF-PIA-18-14",
-      "STF-PIA-18-15",
-      "STF-PIA-18-15 Attachment A.pdf",
-      "STF-PIA-18-15 Attachment B.pdf",
-      "Thumbs.db",
-      "STF-PIA-18-16",
-      "PD STF-PIA-18-16 Attachments A-B.docx",
-      "STF-PIA-18-2",
-      "PD STF-PIA-18-2 Attachment.xlsx",
-      "STF-PIA-18-6",
-      "PD STF-PIA-18-6 Attachments A-G.docx",
-      "STF-PIA-18-8",
-      "STF-PIA-18-9"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 220163,
-    "description": "DKT 55378 STF-PIA-16-4 Data Request Response PD",
-    "filed_date": "10/11/2024",
-    "zip_filename": "dkt_55378_stf-pia-16-4_pd.zip",
-    "qa_count": 1,
-    "confidentiality_count": 0,
-    "other_files": [
-      "DKT 55378 STF-PIA-16-4 PD"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 220386,
-    "description": "STF-PIA-19 Data Request Responses",
-    "filed_date": "11/12/2024",
-    "zip_filename": "dkt_55378_stf-pia-19_pd.zip",
-    "qa_count": 5,
-    "confidentiality_count": 0,
-    "other_files": [
-      "DKT 55378 STF-PIA-19 PD",
-      "STF-PIA-19-2",
-      "PD STF-PIA-19-2 Attachment.xlsx",
-      "STF-PIA-19-5",
-      "PD STF-PIA-19-5 Attachment.xlsx"
-    ],
-    "status": "ok"
-  },
-  {
-    "doc_id_api": 226453,
-    "description": "DKT 55378_STF-PIA-20 PUBLIC DISCLOSURE",
-    "filed_date": "5/1/2026",
-    "zip_filename": "dkt_55378_stf-pia-20_public_disclosure.zip",
-    "qa_count": 14,
-    "confidentiality_count": 0,
-    "other_files": [
-      "DKT 55378_STF-PIA-20 PUBLIC DISCLOSURE",
-      "STF-PIA-20-6 Attachment PUBLIC DISCLOSURE.xlsx",
-      "STF-PIA-20-8 Attachment PUBLIC DISCLOSURE.docx",
-      "STF-PIA-20-2 Attachment PUBLIC DISCLOSURE.xlsx",
-      "STF-PIA-20-1 Attachment PUBLIC DISCLOSURE.xlsx"
-    ],
-    "status": "ok"
-  }
-]
+{
+  "version": 2,
+  "docket_id": "55378",
+  "filings": [
+    {
+      "document_id": 216531,
+      "description": "DKT 55378 - STF-JKA-1 Data Request Responses",
+      "filed_date": "2023-11-30",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216531",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-jka-1_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216531/97761",
+          "cache_name": "216531_dkt_55378_stf-jka-1_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216538,
+      "description": "DKT 55378 - STF-PIA-1 Data Request Responses",
+      "filed_date": "2023-12-01",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216538",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-1.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216538/97768",
+          "cache_name": "216538_dkt_55378_stf-pia-1.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216540,
+      "description": "DKT 55378 - STF-PIA-2 Data Request Responses",
+      "filed_date": "2023-12-01",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216540",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-2_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216540/97770",
+          "cache_name": "216540_dkt_55378_stf-pia-2_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216644,
+      "description": "DKT 55378 STF-PIA-3 Data Request Responses",
+      "filed_date": "2023-12-06",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216644",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-3_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216644/97855",
+          "cache_name": "216644_dkt_55378_stf-pia-3_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216656,
+      "description": "DKT 55378 STF-DEA-1 Data Request Responses",
+      "filed_date": "2023-12-07",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216656",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-dea-1_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216656/97867",
+          "cache_name": "216656_dkt_55378_stf-dea-1_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216666,
+      "description": "STF-JKA-2 Data Request Responses Filing",
+      "filed_date": "2023-12-07",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216666",
+      "attachments": [
+        {
+          "filename": "DKT 55378 STF-JKA-2 PD (3).zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216666/98176",
+          "cache_name": "216666_DKT 55378 STF-JKA-2 PD (3).zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216697,
+      "description": "DKT 55378 STF-PIA-4 Data Request Responses",
+      "filed_date": "2023-12-11",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216697",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-4_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216697/97905",
+          "cache_name": "216697_dkt_55378_stf-pia-4_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216721,
+      "description": "DKT 55378 STF-PIA-5 Data Request Responses",
+      "filed_date": "2023-12-13",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216721",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-5_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216721/97933",
+          "cache_name": "216721_dkt_55378_stf-pia-5_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216737,
+      "description": "DKT 55378 STF-PIA-6 Data Request Responses",
+      "filed_date": "2023-12-14",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216737",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-6_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216737/97947",
+          "cache_name": "216737_dkt_55378_stf-pia-6_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216789,
+      "description": "DKT 55378 STF-DEA-2 Data Request Responses",
+      "filed_date": "2023-12-18",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216789",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-dea-2_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216789/98009",
+          "cache_name": "216789_dkt_55378_stf-dea-2_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216833,
+      "description": "DKT 55378 STF-JKA-3 Data Request Responses",
+      "filed_date": "2023-12-20",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216833",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-jka-3_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216833/98069",
+          "cache_name": "216833_dkt_55378_stf-jka-3_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216861,
+      "description": "DKT 55378 STF-DEA-3 Data Request Responses",
+      "filed_date": "2023-12-21",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216861",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-dea-3_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216861/98083",
+          "cache_name": "216861_dkt_55378_stf-dea-3_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216945,
+      "description": "DKT 55378 STF-DEA-4 Data Request Responses",
+      "filed_date": "2024-01-04",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216945",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-dea-4_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216945/98165",
+          "cache_name": "216945_dkt_55378_stf-dea-4_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216981,
+      "description": "DKT 55378 STF-PIA-7 Data Request Responses",
+      "filed_date": "2024-01-08",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216981",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-7_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216981/98205",
+          "cache_name": "216981_dkt_55378_stf-pia-7_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216985,
+      "description": "DKT 55378 STF-PIA-8 Data Request Responses",
+      "filed_date": "2024-01-08",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216985",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-8.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216985/98207",
+          "cache_name": "216985_dkt_55378_stf-pia-8.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 216986,
+      "description": "DKT 55378 STF-LA-1 Data Request Responses",
+      "filed_date": "2024-01-08",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=216986",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-la-1_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/216986/98208",
+          "cache_name": "216986_dkt_55378_stf-la-1_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217006,
+      "description": "DKT 55378 STF-DEA-5 Data Request Responses",
+      "filed_date": "2024-01-10",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217006",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-dea-5_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217006/98228",
+          "cache_name": "217006_dkt_55378_stf-dea-5_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217009,
+      "description": "DKT 55378 STF-JKA-4 Data Request Responses",
+      "filed_date": "2024-01-10",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217009",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-jka-4_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217009/98231",
+          "cache_name": "217009_dkt_55378_stf-jka-4_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217020,
+      "description": "DKT 55378 STF-GS-1 Data Request Responses",
+      "filed_date": "2024-01-11",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217020",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-gs-1.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217020/98244",
+          "cache_name": "217020_dkt_55378_stf-gs-1.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217029,
+      "description": "DKT 55378 STF-JKA-5 Data Request Responses",
+      "filed_date": "2024-01-11",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217029",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-jka-5_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217029/98252",
+          "cache_name": "217029_dkt_55378_stf-jka-5_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217043,
+      "description": "DKT 55378 STF-LA-2 Data Request Responses",
+      "filed_date": "2024-01-12",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217043",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-la-2.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217043/98263",
+          "cache_name": "217043_dkt_55378_stf-la-2.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217054,
+      "description": "DKT 55378 Supplemental Data Request Responses for STF-JKA-2-2, STF-JKA-2-19, STF-JKA-2-22",
+      "filed_date": "2024-01-12",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217054",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-jka-2_supplemental_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217054/98271",
+          "cache_name": "217054_dkt_55378_stf-jka-2_supplemental_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217055,
+      "description": "DKT 55378 Supplemental Data Request Response STF-DEA-3-6",
+      "filed_date": "2024-01-12",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217055",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-dea-3-6_supplemental_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217055/98272",
+          "cache_name": "217055_dkt_55378_stf-dea-3-6_supplemental_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217091,
+      "description": "DKT 55378 STF-DEA-6 Data Request Responses",
+      "filed_date": "2024-01-17",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217091",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-dea-6_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217091/98303",
+          "cache_name": "217091_dkt_55378_stf-dea-6_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217124,
+      "description": "DKT 55378 STF-PIA-3-5 Supplemental Data Request Response",
+      "filed_date": "2024-01-19",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217124",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-3-5_supp_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217124/98327",
+          "cache_name": "217124_dkt_55378_stf-pia-3-5_supp_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217135,
+      "description": "DKT 55378 STF-DEA-7 Data Request Responses",
+      "filed_date": "2024-01-22",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217135",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-dea-7_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217135/98339",
+          "cache_name": "217135_dkt_55378_stf-dea-7_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217137,
+      "description": "DKT 55378 STF-PIA-9 Data Request Responses",
+      "filed_date": "2024-01-22",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217137",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-9_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217137/98341",
+          "cache_name": "217137_dkt_55378_stf-pia-9_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217222,
+      "description": "DKT 55378 STF-DEA-8 Data Request Responses",
+      "filed_date": "2024-01-26",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217222",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-dea-8_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217222/98399",
+          "cache_name": "217222_dkt_55378_stf-dea-8_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217231,
+      "description": "DKT 55378 STF-JKA-6 Data Request Responses",
+      "filed_date": "2024-01-26",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217231",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-jka-6_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217231/98400",
+          "cache_name": "217231_dkt_55378_stf-jka-6_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217239,
+      "description": "DKT 55378 STF-DEA-9 Data Request Responses",
+      "filed_date": "2024-01-29",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217239",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-dea-9_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217239/98408",
+          "cache_name": "217239_dkt_55378_stf-dea-9_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217240,
+      "description": "DKT 55378 STF-PIA-10 Data Request Responses",
+      "filed_date": "2024-01-29",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217240",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-10_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217240/98409",
+          "cache_name": "217240_dkt_55378_stf-pia-10_pd.zip"
+        },
+        {
+          "filename": "drsum_55378_stf-pia-10_stamp.docx",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217240/98410",
+          "cache_name": "217240_drsum_55378_stf-pia-10_stamp.docx"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217322,
+      "description": "DKT 55378 STF-DEA-8 Supplemental Data Request Responses",
+      "filed_date": "2024-02-05",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217322",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-dea-8_supp.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217322/98481",
+          "cache_name": "217322_dkt_55378_stf-dea-8_supp.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217329,
+      "description": "DKT 55378 STF-JKA-7 Data Request Responses",
+      "filed_date": "2024-02-05",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217329",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-jka-7.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217329/98487",
+          "cache_name": "217329_dkt_55378_stf-jka-7.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217378,
+      "description": "DIT 55378 STF-GS-2 Data Request Responses",
+      "filed_date": "2024-02-08",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217378",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-gs-2_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217378/98558",
+          "cache_name": "217378_dkt_55378_stf-gs-2_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217426,
+      "description": "DKT 55378 STF-DEA-3-6 Supplemental Data Request Response",
+      "filed_date": "2024-02-09",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217426",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-dea-3-6_supp_2-9-24_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217426/98591",
+          "cache_name": "217426_dkt_55378_stf-dea-3-6_supp_2-9-24_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217487,
+      "description": "DKT 55378 STF-LA-1-23 Supplemental Data Request Response",
+      "filed_date": "2024-02-14",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217487",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-la-1-23_supp_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217487/98617",
+          "cache_name": "217487_dkt_55378_stf-la-1-23_supp_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217562,
+      "description": "DKT 55378 STF-PIA-9-13 Supplemental Data Request Response",
+      "filed_date": "2024-02-15",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217562",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-9-13_supp_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217562/98702",
+          "cache_name": "217562_dkt_55378_stf-pia-9-13_supp_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217638,
+      "description": "DKT 55378 STF-PIA-11 Data Request Responses",
+      "filed_date": "2024-02-19",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217638",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-11_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217638/98775",
+          "cache_name": "217638_dkt_55378_stf-pia-11_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217666,
+      "description": "DKT 55378 STF-PIA-12 Data Request Responses",
+      "filed_date": "2024-02-22",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217666",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-12_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217666/98811",
+          "cache_name": "217666_dkt_55378_stf-pia-12_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217672,
+      "description": "DKT 55378 STF-JKA-8 PD",
+      "filed_date": "2024-02-22",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217672",
+      "attachments": [
+        {
+          "filename": "DKT 55378 STF-JKA-8 PD.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217672/98817",
+          "cache_name": "217672_DKT 55378 STF-JKA-8 PD.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 217720,
+      "description": "DKT 55378 STF-PIA-13 Data Request Responses",
+      "filed_date": "2024-02-26",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=217720",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-13_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/217720/98838",
+          "cache_name": "217720_dkt_55378_stf-pia-13_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 219091,
+      "description": "DKT 55378 STF-PIA-14 Data Request Responses",
+      "filed_date": "2024-06-17",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=219091",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-14_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/219091/100116",
+          "cache_name": "219091_dkt_55378_stf-pia-14_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 219905,
+      "description": "STF-PIA-15 Data Request Responses",
+      "filed_date": "2024-09-13",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=219905",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-15_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/219905/101055",
+          "cache_name": "219905_dkt_55378_stf-pia-15_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 219952,
+      "description": "STF-DEA-10 Data Request Responses",
+      "filed_date": "2024-09-16",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=219952",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-dea-10_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/219952/101080",
+          "cache_name": "219952_dkt_55378_stf-dea-10_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 220094,
+      "description": "STF-PIA-16 Data Request Responses",
+      "filed_date": "2024-10-04",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=220094",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-16_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/220094/101266",
+          "cache_name": "220094_dkt_55378_stf-pia-16_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 220126,
+      "description": "DKT 55378 STF-PIA-18 Data Request Responses",
+      "filed_date": "2024-10-10",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=220126",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-18_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/220126/101299",
+          "cache_name": "220126_dkt_55378_stf-pia-18_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 220163,
+      "description": "DKT 55378 STF-PIA-16-4 Data Request Response PD",
+      "filed_date": "2024-10-11",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=220163",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-16-4_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/220163/101311",
+          "cache_name": "220163_dkt_55378_stf-pia-16-4_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 220386,
+      "description": "STF-PIA-19 Data Request Responses",
+      "filed_date": "2024-11-12",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=220386",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-19_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/220386/101571",
+          "cache_name": "220386_dkt_55378_stf-pia-19_pd.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 226453,
+      "description": "DKT 55378_STF-PIA-20 PUBLIC DISCLOSURE",
+      "filed_date": "2026-05-01",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=226453",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-20_public_disclosure.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/226453/107740",
+          "cache_name": "226453_dkt_55378_stf-pia-20_public_disclosure.zip"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "document_id": 227316,
+      "description": "DKT 55378_STF-PIA-21 PD Data Request Responses",
+      "filed_date": "2026-07-23",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=227316",
+      "attachments": [
+        {
+          "filename": "dkt_55378_stf-pia-21_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/227316/108554",
+          "cache_name": "227316_dkt_55378_stf-pia-21_pd.zip"
+        }
+      ],
+      "status": "ok"
+    }
+  ]
+}
