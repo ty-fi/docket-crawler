@@ -27,7 +27,7 @@ DELAY_BETWEEN_PAGES = 2   # seconds between document-page fetches
 DELAY_BETWEEN_ZIPS = 5    # seconds between ZIP downloads
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (research crawler; tylerjordanfitch@gmail.com)",
+    "User-Agent": "Mozilla/5.0 (research crawler; mail@tyfi.computer)",
     "Referer": "https://psc.ga.gov/",
 }
 
