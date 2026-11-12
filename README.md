@@ -32,9 +32,22 @@ python -m http.server -d site 8000
 .venv/bin/python -m pytest
 ```
 
-`fetch` only reads the pages of filings it hasn't seen (`--refresh-pages` re-reads all of them), skips
-files already in the cache, waits at least 2 s between requests (`--delay`), and retries transient
-errors. A failed filing is recorded with `"status": "error"` in the manifest and retried next run.
+### Going easy on the PSC site
+
+- One request at a time, at least 2 s apart (`--delay`), with a User-Agent that includes a contact address.
+- `fetch` reads pages and downloads files **only for new filings** (or ones that failed last time).
+  Filings already in the manifest were parsed when they were new; if their files aren't cached
+  (e.g. in CI), `parse` keeps their rows from the committed CSV. A normal weekly run is just the
+  filing list, about one request per 50 filings.
+- Transient errors (429/5xx, timeouts) are retried with exponential backoff, and a `Retry-After`
+  header is honored (up to 10 minutes; longer means give up on that request).
+- After 3 refusals in a row (401/403, or 429 that persists through retries) the run stops
+  (exit code 3). What was fetched so far is kept, and the rest is tried next run.
+- At most 200 files are downloaded per run (`--max-downloads`); the rest wait for the next run.
+- A failed filing is recorded with `"status": "error"` in the manifest and retried next run.
+
+To re-parse everything after a parser change, fill the cache first (this re-downloads all files):
+`python -m docket_crawler fetch --download-all && python -m docket_crawler parse`.
 
 ## Adding a docket
 

@@ -48,6 +48,10 @@ jobs:
           restore-keys: filings-v3-
 
       - name: Fetch new filings
+        id: fetch
+        # Exit code 3 = the site refused requests. Still parse and commit what finished,
+        # then fail the job at the end so it shows up.
+        continue-on-error: true
         run: python -m docket_crawler fetch ${{ inputs.refresh_pages && '--refresh-pages' || '' }}
 
       - name: Parse
@@ -72,9 +76,16 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: gh workflow enable refresh.yml --repo "${GITHUB_REPOSITORY}"
 
+      - name: Fail if fetch failed
+        if: steps.fetch.outcome == 'failure'
+        run: |
+          echo "::error::Fetch step failed (see its log). Data that was fetched has been committed."
+          exit 1
+
   build:
     needs: refresh
-    if: ${{ !cancelled() && (needs.refresh.result == 'success' || needs.refresh.result == 'skipped') }}
+    # Deploy even if fetching failed part-way: the committed data is still consistent.
+    if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     permissions:
       contents: read

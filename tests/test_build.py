@@ -97,3 +97,26 @@ def test_has_trade_secret_signals():
     assert has_trade_secret(False, [], "STF", "refer to TS_Zip_AllResponses.zip")
     assert not has_trade_secret(False, ["STF-DEA-1-1 Attachment.xlsx"], "STF", "Costs and benefits.")
     assert not has_trade_secret(False, [], "STF", "The TSA and ts values")              # not a TS doc ref
+
+
+def test_cold_cache_keeps_rows_from_existing_csv(tmp_path, monkeypatch):
+    monkeypatch.setattr(config, "OUTPUT_DIR", tmp_path)
+    cfg = config.DocketConfig(id="1", label="D1", subtitle="", company_filter="X")
+    cfg.cache_dir.mkdir(parents=True)
+    for doc, name in [(100, "STF-DEA-1-1.docx"), (200, "STF-DEA-1-2.docx")]:
+        (cfg.cache_dir / f"{doc}_{name}").write_bytes(qa_docx(f"STF-DEA-1-{doc // 100}", "Q", f"R{doc}"))
+    manifest = {"version": 2, "docket_id": "1", "filings": [
+        {"document_id": d, "description": "d", "filed_date": f"2024-01-0{i}", "url": "u", "status": "ok",
+         "attachments": [{"filename": n, "url": "x", "cache_name": f"{d}_{n}"}]}
+        for i, (d, n) in enumerate([(100, "STF-DEA-1-1.docx"), (200, "STF-DEA-1-2.docx")], 1)
+    ]}
+    cfg.manifest_path.write_text(json.dumps(manifest))
+
+    first, _ = build_docket(cfg)
+    build.write_csv(cfg.csv_path, first)
+
+    (cfg.cache_dir / "100_STF-DEA-1-1.docx").unlink()     # cache evicted for filing 100
+    second, problems = build_docket(cfg)
+    assert [r["row_id"] for r in second] == [r["row_id"] for r in first]
+    assert [r["response"] for r in second] == ["R100", "R200"]
+    assert problems == []

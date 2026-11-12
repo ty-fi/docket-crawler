@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Dict, List
 
 from .config import DocketConfig
-from .psc_client import PSCClient, filing_url
+from .psc_client import PSCClient, SiteRefusingError, filing_url
 
 # Attachments we download and parse. Everything else is recorded with its link only.
 DOWNLOAD_EXTENSIONS = (".zip", ".docx")
@@ -82,8 +82,26 @@ def _new_entry(item: dict, links: List[tuple]) -> dict:
     }
 
 
-def fetch_docket(cfg: DocketConfig, client: PSCClient, refresh_pages: bool = False) -> List[str]:
-    """Update the docket's manifest and file cache. Returns a list of error messages."""
+def _needs_download(cfg: DocketConfig, entry: dict) -> List[dict]:
+    return [
+        att for att in entry["attachments"]
+        if att["filename"].lower().endswith(DOWNLOAD_EXTENSIONS)
+        and not (cfg.cache_dir / att["cache_name"]).exists()
+    ]
+
+
+def fetch_docket(cfg: DocketConfig, client: PSCClient, refresh_pages: bool = False,
+                 download_all: bool = False, max_downloads: int = 200) -> List[str]:
+    """Update the docket's manifest and file cache. Returns a list of error messages.
+
+    Files are downloaded only for filings that are new or being retried in this run.
+    Filings already in the manifest were parsed when they were new, and `parse` keeps
+    their rows from the committed CSV, so a cold cache (e.g. in CI) causes no
+    re-downloads. ``download_all`` fills in every missing file, for a full re-parse.
+
+    At most ``max_downloads`` files are downloaded; new filings beyond that are left
+    out of the manifest and picked up by the next run. A SiteRefusingError from the
+    client is re-raised after the manifest is saved."""
     print(f"\n== Docket {cfg.id}: {cfg.label}")
     manifest = load_manifest(cfg)
     items = client.list_filings(cfg.id)
@@ -94,41 +112,71 @@ def fetch_docket(cfg: DocketConfig, client: PSCClient, refresh_pages: bool = Fal
     errors: List[str] = []
     current: Dict[int, dict] = {}
     downloaded = 0
-    for n, item in enumerate(matched, 1):
-        doc_id = item["documentId"]
-        entry = manifest.get(doc_id)
-        try:
-            if entry is None or refresh_pages or entry["status"] != "ok":
-                label = "new" if entry is None else "refresh"
-                print(f"  [{n}/{len(matched)}] {label}: {doc_id} {normalize_space(item['description'])}")
-                entry = _new_entry(item, client.attachment_links(doc_id))
-            else:
-                # Keep the cached attachment list; refresh metadata that is free to update.
-                entry["description"] = normalize_space(item.get("description", ""))
-                entry["filed_date"] = iso_date(item)
+    deferred = 0
+    try:
+        for n, item in enumerate(matched, 1):
+            doc_id = item["documentId"]
+            old = manifest.get(doc_id)
+            entry = old
+            is_new_work = old is None or refresh_pages or old["status"] != "ok"
 
-            for att in entry["attachments"]:
-                if not att["filename"].lower().endswith(DOWNLOAD_EXTENSIONS):
-                    continue
-                dest = cfg.cache_dir / att["cache_name"]
-                if dest.exists():
-                    continue
-                size = client.download(att["url"], dest)
-                downloaded += 1
-                print(f"      downloaded {att['filename']} ({size:,} bytes)")
-        except Exception as e:  # keep going; the filing is retried on the next run
-            msg = f"docket {cfg.id} document {doc_id}: {type(e).__name__}: {e}"
-            print(f"      ERROR {msg}")
-            errors.append(msg)
-            if entry is None:
-                entry = _new_entry(item, [])
-            entry["status"] = "error"
-        current[doc_id] = entry
+            if downloaded >= max_downloads and (old is None or download_all):
+                # Over the cap: leave new filings for the next run.
+                deferred += 1
+                if old is not None:
+                    current[doc_id] = old
+                continue
+
+            try:
+                if is_new_work:
+                    label = "new" if old is None else "refresh"
+                    print(f"  [{n}/{len(matched)}] {label}: {doc_id} {normalize_space(item['description'])}")
+                    entry = _new_entry(item, client.attachment_links(doc_id))
+                else:
+                    # Keep the stored attachment list; refresh metadata that is free to update.
+                    entry = dict(old)
+                    entry["description"] = normalize_space(item.get("description", ""))
+                    entry["filed_date"] = iso_date(item)
+
+                if is_new_work or download_all:
+                    for att in _needs_download(cfg, entry):
+                        if downloaded >= max_downloads:
+                            raise _CapReached()
+                        size = client.download(att["url"], cfg.cache_dir / att["cache_name"])
+                        downloaded += 1
+                        print(f"      downloaded {att['filename']} ({size:,} bytes)")
+            except _CapReached:
+                deferred += 1
+                if old is not None:
+                    current[doc_id] = old
+                continue
+            except SiteRefusingError:
+                if old is not None:
+                    current[doc_id] = old
+                raise
+            except Exception as e:  # keep going; the filing is retried on the next run
+                msg = f"docket {cfg.id} document {doc_id}: {type(e).__name__}: {e}"
+                print(f"      ERROR {msg}")
+                errors.append(msg)
+                if entry is None:
+                    entry = _new_entry(item, [])
+                entry["status"] = "error"
+            current[doc_id] = entry
+            save_manifest(cfg, {**manifest, **current})
+    except SiteRefusingError:
+        # Keep everything we knew; nothing is dropped on an aborted run.
         save_manifest(cfg, {**manifest, **current})
+        raise
 
-    dropped = set(manifest) - set(current)
+    dropped = set(manifest) - set(current) - {i["documentId"] for i in matched}
     if dropped:
         print(f"  {len(dropped)} filings no longer listed, removed from manifest: {sorted(dropped)}")
     save_manifest(cfg, current)
-    print(f"  {downloaded} files downloaded, {len(errors)} errors")
+    if deferred:
+        print(f"  Download cap ({max_downloads}) reached: {deferred} filings left for the next run")
+    print(f"  {downloaded} files downloaded, {client.requests_made} requests so far, {len(errors)} errors")
     return errors
+
+
+class _CapReached(Exception):
+    pass

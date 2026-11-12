@@ -162,29 +162,61 @@ def number_responses(rows: List[dict]) -> None:
         row["is_supplemental"] = "yes" if counts[key] > 1 else "no"
 
 
+def _previous_rows(cfg: DocketConfig) -> Dict[int, List[dict]]:
+    """Rows from the existing CSV, by filing, for filings whose files aren't cached."""
+    if not cfg.csv_path.exists():
+        return {}
+    by_filing: Dict[int, List[dict]] = defaultdict(list)
+    for row in read_csv(cfg.csv_path):
+        by_filing[int(row["document_id"])].append(row)
+    return by_filing
+
+
 def build_docket(cfg: DocketConfig) -> Tuple[List[dict], List[str]]:
+    """Parse every filing whose files are cached. A filing with missing files keeps its
+    rows from the existing CSV, so a cold cache never drops data."""
     print(f"\n== Docket {cfg.id}: parsing cached files")
     filings = load_manifest(cfg)
     if not filings:
         raise SystemExit(f"No manifest for docket {cfg.id}; run `fetch` first.")
+    previous = _previous_rows(cfg)
     rows: List[dict] = []
     problems: List[str] = []
+    parsed = kept = 0
+    stale_schema = False
     for filing in sorted(filings.values(), key=lambda f: (f["filed_date"], f["document_id"])):
-        for att in filing["attachments"]:
+        doc_id = filing["document_id"]
+        sources = [a for a in filing["attachments"] if a["filename"].lower().endswith((".zip", ".docx"))]
+        missing = [a for a in sources if not (cfg.cache_dir / a["cache_name"]).exists()]
+
+        if missing and previous.get(doc_id):
+            for old in previous[doc_id]:
+                stale_schema |= any(f not in old for f in FIELDS)
+                rows.append({f: old.get(f, "") for f in FIELDS})
+            kept += 1
+            continue
+        for a in missing:
+            if filing["status"] == "ok":
+                problems.append(f"{doc_id}: missing cached file {a['cache_name']} and no earlier rows")
+
+        for att in sources:
             path = cfg.cache_dir / att["cache_name"]
-            if not path.exists():
-                if att["filename"].lower().endswith((".zip", ".docx")):
-                    problems.append(f"{filing['document_id']}: missing cached file {att['cache_name']}")
+            if att in missing:
                 continue
             try:
                 new_rows, notes = _rows_for_source(cfg, filing, att, path)
             except zipfile.BadZipFile as e:
-                problems.append(f"{filing['document_id']}: bad archive {att['filename']}: {e}")
+                problems.append(f"{doc_id}: bad archive {att['filename']}: {e}")
                 continue
             rows.extend(new_rows)
-            problems.extend(f"{filing['document_id']} {att['filename']}: {n}" for n in notes)
+            problems.extend(f"{doc_id} {att['filename']}: {n}" for n in notes)
+        parsed += 1
     number_responses(rows)
-    print(f"  {len(rows)} Q&A records from {len(filings)} filings")
+    if stale_schema:
+        problems.append("kept rows from an older CSV schema; new columns are blank for them. "
+                        "Run `fetch --download-all` then `parse` to rebuild every filing.")
+    print(f"  {len(rows)} Q&A records: {parsed} filings parsed, {kept} kept from the existing CSV "
+          f"(files not cached)")
     return rows, problems
 
 
