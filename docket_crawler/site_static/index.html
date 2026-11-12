@@ -2,54 +2,54 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Georgia PSC Docket Explorer</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.4/styles/ag-grid.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.4/styles/ag-theme-quartz.css">
+<meta name="description" content="Georgia Power's responses to Georgia PSC staff data requests, organised by docket, staff member and request set.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <div class="header-title">
-    <h1>Georgia PSC Docket Explorer</h1>
-    <span id="subtitle"></span>
+<header class="topbar">
+  <div class="brand">
+    <span class="eyebrow">Georgia PSC</span>
+    <h1>Docket Explorer</h1>
   </div>
 
-  <div class="search-wrap">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-    </svg>
-    <input type="search" id="quickFilter" placeholder="Search questions and responses…" autocomplete="off" aria-label="Search">
-  </div>
+  <div class="docket-switch" id="docketSwitch" role="group" aria-label="Docket"></div>
 
-  <div class="filter-groups">
-    <div class="filter-row" id="docketFilters"></div>
-    <div class="filter-row" id="partyFilters"></div>
-  </div>
+  <label class="search" for="search">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="m20.5 20.5-4.2-4.2"/></svg>
+    <input id="search" type="search" autocomplete="off" spellcheck="false" placeholder="Search this docket" aria-label="Search questions and responses">
+    <kbd aria-hidden="true">/</kbd>
+  </label>
 
-  <label class="toggle"><input type="checkbox" id="latestOnly"> Latest response only</label>
+  <button type="button" class="starred-toggle" id="starredToggle" aria-pressed="false" aria-label="Show starred requests">
+    <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2l2.7 5.6 6.1.8-4.5 4.2 1.1 6-5.4-2.9-5.4 2.9 1.1-6-4.5-4.2 6.1-.8z"/></svg>
+    <span class="label">Starred</span> <span class="count" id="starCount">0</span>
+  </button>
 
-  <div class="header-end">
-    <div class="record-count" id="recordCount"></div>
-    <div class="downloads">
-      <a href="qa.csv" download>CSV</a>
-      <a href="qa.sqlite" download>SQLite</a>
-    </div>
-  </div>
+  <nav class="data-links" aria-label="Downloads">
+    <a href="qa.csv" download>CSV</a>
+    <a href="qa.sqlite" download>SQLite</a>
+  </nav>
 </header>
 
-<div class="main">
-  <div class="grid-wrap">
-    <div id="myGrid" class="ag-theme-quartz"></div>
-    <div class="footer" id="footer"></div>
-  </div>
-  <aside class="detail-panel" id="detailPanel" aria-live="polite">
-    <div class="detail-inner" id="detailInner"></div>
-  </aside>
+<div class="layout" id="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Staff and request sets"></nav>
+
+  <section class="list" aria-label="Requests">
+    <div class="list-head" id="listHead"></div>
+    <div class="list-body" id="listBody" role="listbox" aria-label="Requests" tabindex="0"></div>
+  </section>
+
+  <article class="reader" id="reader" aria-live="polite"></article>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/ag-grid-community@31.3.4/dist/ag-grid-community.min.noStyle.js"></script>
+<div class="toast" id="toast" role="status" hidden></div>
+
 <script src="app.js"></script>
 </body>
 </html>
