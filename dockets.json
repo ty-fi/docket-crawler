@@ -15,6 +15,14 @@
       "company_filter": "Georgia Power",
       "request_prefix": "STF",
       "party_label": "Staff"
+    },
+    {
+      "id": "56002",
+      "label": "Docket 56002",
+      "subtitle": "Staff Data Requests — Georgia Power 2025 IRP",
+      "company_filter": "Georgia Power",
+      "request_prefix": "STF",
+      "party_label": "Staff"
     }
   ]
 }
