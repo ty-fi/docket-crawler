@@ -701,6 +701,20 @@
         }
       ],
       "status": "ok"
+    },
+    {
+      "document_id": 229441,
+      "description": "DKT 56002 & 56003 STF-PIA-25 Data Request Responses",
+      "filed_date": "2026-11-13",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=229441",
+      "attachments": [
+        {
+          "filename": "dkt_56002_56003_stf-pia-25_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/229441/110363",
+          "cache_name": "229441_dkt_56002_56003_stf-pia-25_pd.zip"
+        }
+      ],
+      "status": "ok"
     }
   ]
 }
