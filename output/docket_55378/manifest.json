@@ -706,6 +706,20 @@
         }
       ],
       "status": "ok"
+    },
+    {
+      "document_id": 229498,
+      "description": "DKT 55378 Q2 2026 STF-PIA-20-9 Data Request Response",
+      "filed_date": "2026-11-18",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=229498",
+      "attachments": [
+        {
+          "filename": "dkt_55378_q2_2026_stf-pia-20-9_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/229498/110561",
+          "cache_name": "229498_dkt_55378_q2_2026_stf-pia-20-9_pd.zip"
+        }
+      ],
+      "status": "ok"
     }
   ]
 }

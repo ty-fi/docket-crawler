@@ -2060,6 +2060,20 @@
         }
       ],
       "status": "ok"
+    },
+    {
+      "document_id": 229515,
+      "description": "DKT 44280 STF-PIA-48 Data Request Responses",
+      "filed_date": "2026-11-20",
+      "url": "https://psc.ga.gov/search/facts-document/?documentId=229515",
+      "attachments": [
+        {
+          "filename": "dkt_44280_stf-pia-48_pd.zip",
+          "url": "https://services.psc.ga.gov/api/v1/External/Public/Get/Document/DownloadFile/229515/110574",
+          "cache_name": "229515_dkt_44280_stf-pia-48_pd.zip"
+        }
+      ],
+      "status": "ok"
     }
   ]
 }
